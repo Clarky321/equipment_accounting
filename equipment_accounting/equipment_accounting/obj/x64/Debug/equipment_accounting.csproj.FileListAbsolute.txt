@@ -1,0 +1,10 @@
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.exe.config
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.exe
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.pdb
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.csproj.AssemblyReference.cache
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Properties.Resources.resources
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.csproj.GenerateResource.cache
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.csproj.CoreCompileInputs.cache
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.exe
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.pdb
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Form1.resources
