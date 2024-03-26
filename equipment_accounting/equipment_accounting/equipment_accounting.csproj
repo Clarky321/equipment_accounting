@@ -67,16 +67,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase.cs" />
+    <Compile Include="date1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="date1.Designer.cs">
+      <DependentUpon>date1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="log_in.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="log_in.Designer.cs">
+      <DependentUpon>log_in.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sign_up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sign_up.Designer.cs">
+      <DependentUpon>sign_up.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="date1.resx">
+      <DependentUpon>date1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="log_in.resx">
+      <DependentUpon>log_in.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sign_up.resx">
+      <DependentUpon>sign_up.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

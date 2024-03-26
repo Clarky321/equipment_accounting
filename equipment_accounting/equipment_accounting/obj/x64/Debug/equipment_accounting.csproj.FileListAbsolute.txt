@@ -8,3 +8,6 @@ C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\
 C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.exe
 C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.pdb
 C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Form1.resources
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.sign_up.resources
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.log_in.resources
+C:\loran-project\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.date1.resources
