@@ -16,7 +16,7 @@ namespace equipment_accounting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new log_in());
+            Application.Run(new frmLog_in());
         }
     }
 }

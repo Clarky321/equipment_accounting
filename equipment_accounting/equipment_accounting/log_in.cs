@@ -13,17 +13,12 @@ namespace equipment_accounting
 {
     public partial class log_in : Form
     {
-        DataBase db = new DataBase();
-        sign_up Sign_UpForm;
+        //DataBase db = new DataBase();
 
         public log_in()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-
-            //Sign_UpForm = new sign_up();
-
-            //Sign_UpForm.AccountCreated += Sign_up_AccountCreated;
         }
 
         private void Sign_up_AccountCreated(object sender, string e)
@@ -47,12 +42,12 @@ namespace equipment_accounting
 
             string querystring = $"SELECT id_user, login_user FROM register where login_user = '{loginUser}' and password_user = '{passwordUser}'";
 
-            SqlCommand command = new SqlCommand(querystring, db.GetConnection());
+            //SqlCommand command = new SqlCommand(querystring, db.GetConnection());
 
-            adapter.SelectCommand = command;
+            //adapter.SelectCommand = command;
             adapter.Fill(table);
 
-            if(table.Rows.Count == 1) 
+            if (table.Rows.Count == 1)
             {
                 MessageBox.Show("Вы успешно вошли", "Успешно", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 date1 frm2 = new date1();
@@ -66,20 +61,10 @@ namespace equipment_accounting
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 frm1 = new Form1();
-            frm1.ShowDialog();
-            Show();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
-            Sign_UpForm = new sign_up();
-            Sign_UpForm.AccountCreated += Sign_up_AccountCreated;
-            //sign_up sign_Up = new sign_up();
+            sign_up sign_Up = new sign_up();
             Hide();
-            Sign_UpForm.ShowDialog();
             Show();
         }
     }

@@ -13,9 +13,7 @@ namespace equipment_accounting
 {
     public partial class sign_up : Form
     {
-        DataBase db = new DataBase();
-
-        public event EventHandler<string> AccountCreated;
+        //DataBase db = new DataBase();
 
         public sign_up()
         {
@@ -35,26 +33,24 @@ namespace equipment_accounting
 
             string querystring = $"INSERT INTO register(login_user, password_user) values ('{loginUser}', '{passwordUser}')";
 
-            SqlCommand command = new SqlCommand(querystring, db.GetConnection());
+            //SqlCommand command = new SqlCommand(querystring, db.GetConnection());
 
-            db.openConnection();
+            //db.openConnection();
 
-            if (command.ExecuteNonQuery() == 1)
-            {
+            //if (command.ExecuteNonQuery() == 1)
+            //{
                 MessageBox.Show("Аккаунт успешно создан", "Успех");
-
-                AccountCreated?.Invoke(this, loginUser);
 
                 log_in frm_login = new log_in();
                 Hide();
                 frm_login.ShowDialog();
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 MessageBox.Show("Аккаунт не создан");
-            }
+            //}
 
-            db.closeConnection();
+            //db.closeConnection();
         }
 
         private Boolean checkuser()
@@ -66,12 +62,12 @@ namespace equipment_accounting
             DataTable table = new DataTable();
             string querystring = $"SELECT id_user, login_user, password_user FROM register where login_user = '{login}' and password_user = '{password}'";
 
-            SqlCommand command = new SqlCommand(querystring , db.GetConnection());
+            //SqlCommand command = new SqlCommand(querystring, db.GetConnection());
 
-            adapter.SelectCommand = command;
+            //adapter.SelectCommand = command;
             adapter.Fill(table);
 
-            if(table.Rows.Count > 0) 
+            if (table.Rows.Count > 0)
             {
                 MessageBox.Show("Пользователь уже существует");
 
