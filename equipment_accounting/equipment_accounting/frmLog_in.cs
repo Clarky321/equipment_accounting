@@ -49,8 +49,8 @@ namespace equipment_accounting
                     MessageBox.Show("Вы вошли в систему", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Hide();
-                    date1 frmDate1 = new date1();
-                    frmDate1.ShowDialog();
+                    frmMenu menu = new frmMenu();
+                    menu.ShowDialog();
                     Close();
                 }
                 else

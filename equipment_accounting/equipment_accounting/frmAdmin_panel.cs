@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace equipment_accounting
 {
-    public partial class date1 : Form
+    public partial class frmAdmin_panel : Form
     {
-        public date1()
+        public frmAdmin_panel()
         {
             InitializeComponent();
         }

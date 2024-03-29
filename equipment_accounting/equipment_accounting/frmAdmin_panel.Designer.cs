@@ -1,6 +1,6 @@
 ﻿namespace equipment_accounting
 {
-    partial class date1
+    partial class frmAdmin_panel
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // date1
+            // frmAdmin_panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1662, 897);
-            this.Name = "date1";
-            this.Text = "date1";
+            this.ClientSize = new System.Drawing.Size(1017, 636);
+            this.Name = "frmAdmin_panel";
+            this.Text = "frmAdmin_panel";
             this.ResumeLayout(false);
 
         }

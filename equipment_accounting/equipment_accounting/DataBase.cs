@@ -10,6 +10,7 @@ namespace equipment_accounting
     {
         private readonly string connectionString; // Строка подключения к базе данных.
         private SqlConnection sqlConnection; // Объект SqlConnection для управления соединением с базой данных.
+        //public SqlConnection sqlConnection {  get; private set; }
 
         // Конструктор класса. Инициализирует новый экземпляр класса DataBase с указанной строкой подключения.
         public DataBase(string connectionString)
