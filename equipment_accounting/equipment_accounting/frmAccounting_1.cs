@@ -25,6 +25,8 @@ namespace equipment_accounting
 
         private void frmAccounting_1_Load(object sender, EventArgs e)
         {
+            //DatesCheck();
+
             // Загружаем доступные года и месяцы при загрузке формы
             LoadYears();
             LoadMonth();
@@ -157,17 +159,54 @@ namespace equipment_accounting
             MessageBox.Show("Данные успешно сохранены", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void DatesCheck()
+        {
+            DateTime currentDate = DateTime.Now.Date;
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DateTime rowDate;
+
+                if (DateTime.TryParse(row.Cells["dates"].Value.ToString(), out rowDate) && rowDate.Date != currentDate)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        cell.ReadOnly = true;
+                    }
+                }
+            }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SaveDataToDataBase();
 
-                dataGridView1.ReadOnly = true;
-            }
-            catch (Exception ex) 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            int columnIndex = e.ColumnIndex;
+
+            if (dataGridView1.Columns[columnIndex].Name == "dates")
             {
-                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+                MessageBox.Show("Редактирование даты запрещено.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DateTime currentDate = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells["dates"].Value.ToString());
+
+                DateTime now = DateTime.Now.Date;
+
+                if (columnIndex != dataGridView1.Columns["dates"].Index && currentDate != now)
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Вы можете редактировать только столбец с текущей датой.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
