@@ -25,8 +25,6 @@ namespace equipment_accounting
 
         private void frmAccounting_1_Load(object sender, EventArgs e)
         {
-            //DatesCheck();
-
             // Загружаем доступные года и месяцы при загрузке формы
             LoadYears();
             LoadMonth();
@@ -125,66 +123,53 @@ namespace equipment_accounting
 
         private void SaveDataToDataBase()
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            try
             {
-                if (!row.IsNewRow)
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    int id = Convert.ToInt32(row.Cells["id"].Value);
-                    DateTime date = Convert.ToDateTime(row.Cells["dates"].Value);
-                    int loptops1 = Convert.ToInt32(row.Cells["loptops_1"].Value);
-                    int loptops2 = Convert.ToInt32(row.Cells["loptops_2"].Value);
-                    int projectors = Convert.ToInt32(row.Cells["projectors"].Value);
-                    int webcamLogitech = Convert.ToInt32(row.Cells["webcam_logitech"].Value);
-                    int webcamNlo = Convert.ToInt32(row.Cells["webcam_nlo"].Value);
-                    int webcamTower = Convert.ToInt32(row.Cells["webcam_tower"].Value);
+                    // Проверяем, является ли строка новой (т.е. ее ID равен 0)
+                    if (row.IsNewRow)
+                        continue;
 
-                    //SQL - запрос
+                    /// Собираем данные из ячеек строки
+                    int id = Convert.ToInt32(row.Cells["id"].Value);
+                    DateTime date = row.Cells["dates"].Value != DBNull.Value ? Convert.ToDateTime(row.Cells["dates"].Value) : DateTime.MinValue;
+                    int loptops1 = row.Cells["loptops_1"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["loptops_1"].Value) : 0;
+                    int loptops2 = row.Cells["loptops_2"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["loptops_2"].Value) : 0;
+                    int projectors = row.Cells["projectors"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["projectors"].Value) : 0;
+                    int webcamLogitech = row.Cells["webcam_logitech"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_logitech"].Value) : 0;
+                    int webcamNlo = row.Cells["webcam_nlo"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_nlo"].Value) : 0;
+                    int webcamTower = row.Cells["webcam_tower"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_tower"].Value) : 0;
+
+                    // Создаем SQL-запрос в зависимости от того, новая это строка или уже существующая
                     string query = "";
                     if (id == 0)
                     {
-                        query = $"INSERT INTO technique_morning (dates, loptops_1, loptops_2, projectors, webcam_logitech, webcam_nlo, webcam_tower)" +
-                            $"VALUES ('{date.ToString("yyyy-MM-dd")}', {loptops1}, {loptops2}, {projectors}, {webcamLogitech}, {webcamNlo}, {webcamTower})";
+                        query = $"INSERT INTO technique_morning (dates, loptops_1, loptops_2, projectors, webcam_logitech, webcam_nlo, webcam_tower) " +
+                                $"VALUES ('{date.ToString("yyyy-MM-dd")}', {loptops1}, {loptops2}, {projectors}, {webcamLogitech}, {webcamNlo}, {webcamTower})";
                     }
                     else
                     {
                         query = $"UPDATE technique_morning SET dates = '{date.ToString("yyyy-MM-dd")}', loptops_1 = {loptops1}, loptops_2 = {loptops2}, " +
-                        $"projectors = {projectors}, webcam_logitech = {webcamLogitech}, webcam_nlo = {webcamNlo}, webcam_tower = {webcamTower} " +
-                        $"WHERE id = {id}";
+                                $"projectors = {projectors}, webcam_logitech = {webcamLogitech}, webcam_nlo = {webcamNlo}, webcam_tower = {webcamTower} " +
+                                $"WHERE id = {id}";
                     }
 
+                    // Выполняем SQL-запрос
                     db.ExecuteNonQuery(query);
                 }
+
+                MessageBox.Show("Данные успешно сохранены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            MessageBox.Show("Данные успешно сохранены", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void DatesCheck()
-        {
-            DateTime currentDate = DateTime.Now.Date;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            catch (Exception ex)
             {
-                DateTime rowDate;
-
-                if (DateTime.TryParse(row.Cells["dates"].Value.ToString(), out rowDate) && rowDate.Date != currentDate)
-                {
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        cell.ReadOnly = true;
-                    }
-                }
+                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-
+            SaveDataToDataBase();
         }
 
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
