@@ -34,7 +34,6 @@
             this.btnText_password = new System.Windows.Forms.TextBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.AccountRegLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCombo_login
@@ -77,7 +76,7 @@
             // btnEnter
             // 
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnEnter.Location = new System.Drawing.Point(203, 294);
+            this.btnEnter.Location = new System.Drawing.Point(203, 331);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(158, 47);
             this.btnEnter.TabIndex = 4;
@@ -88,30 +87,19 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnExit.Location = new System.Drawing.Point(402, 294);
+            this.btnExit.Location = new System.Drawing.Point(393, 331);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(158, 47);
             this.btnExit.TabIndex = 5;
-            this.btnExit.Text = "Отмена";
+            this.btnExit.Text = "Выход";
             this.btnExit.UseVisualStyleBackColor = true;
-            // 
-            // AccountRegLabel
-            // 
-            this.AccountRegLabel.AutoSize = true;
-            this.AccountRegLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.AccountRegLabel.Location = new System.Drawing.Point(199, 361);
-            this.AccountRegLabel.Name = "AccountRegLabel";
-            this.AccountRegLabel.Size = new System.Drawing.Size(215, 20);
-            this.AccountRegLabel.TabIndex = 6;
-            this.AccountRegLabel.Text = "Зарегистрировать аккаунт";
-            this.AccountRegLabel.Click += new System.EventHandler(this.AccountRegLabel_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmLog_in
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 390);
-            this.Controls.Add(this.AccountRegLabel);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.btnText_password);
@@ -135,6 +123,5 @@
         private System.Windows.Forms.TextBox btnText_password;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label AccountRegLabel;
     }
 }

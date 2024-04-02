@@ -40,7 +40,7 @@ namespace equipment_accounting
 
         public void Dispose()
         {
-            //throw new NotImplementedException();
+            
         }
     }
 }

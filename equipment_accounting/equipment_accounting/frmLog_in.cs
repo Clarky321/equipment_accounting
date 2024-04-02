@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace equipment_accounting
@@ -14,6 +8,8 @@ namespace equipment_accounting
     public partial class frmLog_in : Form
     {
         private DataBase db;
+
+        public event EventHandler SuccessfulLogin;
 
         public frmLog_in()
         {
@@ -25,78 +21,79 @@ namespace equipment_accounting
 
         private void frmLog_in_Load(object sender, EventArgs e)
         {
-            btnCombo_login.MaxLength = 50;
-            btnText_password.MaxLength = 50;
-
-            ComboBoxUserLogins();
+            SetMaxLengths();
+            LoadUserLogins();
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
+            // Получаем логин и пароль пользователя
             string loginUser = btnCombo_login.Text;
             string passwordUser = btnText_password.Text;
 
+            // Создаем SQL запрос для проверки авторизации пользователя
             string query = $"SELECT * FROM register WHERE login_user = '{loginUser}' AND password_user = '{passwordUser}'";
 
             try
             {
+                // Выполняем запрос к базе данных
                 var command = db.ExecuteQuery(query);
 
+                // Читаем результат выполнения запроса
                 SqlDataReader reader = command.ExecuteReader();
 
+                // Если найдены записи, то авторизация успешна
                 if (reader.HasRows)
                 {
+                    // Выводим сообщение об успешной авторизации
                     MessageBox.Show("Вы вошли в систему", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    Hide();
-                    frmMenu menu = new frmMenu();
-                    menu.ShowDialog();
-                    Close();
+                    SuccessfulLogin?.Invoke(this, new EventArgs());
                 }
+                // Иначе выводим сообщение о неверных данных
                 else
                 {
                     MessageBox.Show("Неверный логин или пароль", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                // Закрываем соединение с базой данных
                 db.closeConnection();
             }
             catch (Exception ex)
             {
+                // В случае ошибки выводим сообщение с ошибкой
                 MessageBox.Show("Ошибка при выполнении запроса: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                // Закрываем соединение с базой данных
                 db.closeConnection();
             }
         }
 
-        // Метод для заполнения ComboBox логинами из базы данных.
-        private void ComboBoxUserLogins()
+        // Метод для установки максимальной длины текстовых полей
+        private void SetMaxLengths()
+        {
+            btnCombo_login.MaxLength = 50;
+            btnText_password.MaxLength = 50;
+        }
+
+        // Метод для загрузки логинов пользователей в выпадающий список
+        private void LoadUserLogins()
         {
             try
             {
-                // Получаем список уникальных логинов из базы данных.
                 List<string> logins = db.GetUniqueUserLogins();
 
-                btnCombo_login.Items.Clear();
-
-                // Добавляем каждый логин в ComboBox.
-                foreach (string login in logins)
-                {
-                    btnCombo_login.Items.Add(login);
-                }
+                btnCombo_login.Items.AddRange(logins.ToArray());
             }
-
-            catch (Exception ex)
+            catch (Exception ex) 
             {
                 MessageBox.Show("Ошибка при загрузке логинов: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void AccountRegLabel_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            frmSign_up sign_Up = new frmSign_up();
-            Hide();
-            sign_Up.ShowDialog();
-            Show();
+            // Выходим из приложения
+            Application.Exit();
         }
     }
 }

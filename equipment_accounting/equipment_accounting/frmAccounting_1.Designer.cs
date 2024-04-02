@@ -33,10 +33,11 @@
             this.comboBox_month = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox_names = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.button_Refresh = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.comboBox_names = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 23);
+            this.label1.Location = new System.Drawing.Point(14, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 20);
@@ -84,31 +85,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(255, 23);
+            this.label2.Location = new System.Drawing.Point(259, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Месяц:";
-            // 
-            // comboBox_names
-            // 
-            this.comboBox_names.FormattingEnabled = true;
-            this.comboBox_names.Location = new System.Drawing.Point(1219, 18);
-            this.comboBox_names.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBox_names.Name = "comboBox_names";
-            this.comboBox_names.Size = new System.Drawing.Size(266, 28);
-            this.comboBox_names.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1077, 23);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Ответственный:";
             // 
             // button_Refresh
             // 
@@ -130,15 +112,45 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // comboBox_names
+            // 
+            this.comboBox_names.FormattingEnabled = true;
+            this.comboBox_names.Location = new System.Drawing.Point(1170, 18);
+            this.comboBox_names.Name = "comboBox_names";
+            this.comboBox_names.Size = new System.Drawing.Size(316, 28);
+            this.comboBox_names.TabIndex = 9;
+            this.comboBox_names.SelectedIndexChanged += new System.EventHandler(this.comboBox_names_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1029, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Ответственный:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(679, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 32);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmAccounting_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1498, 882);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.button_Refresh);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox_names);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.button_Refresh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox_month);
@@ -161,9 +173,10 @@
         private System.Windows.Forms.ComboBox comboBox_month;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox_names;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_Refresh;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ComboBox comboBox_names;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

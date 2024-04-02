@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace equipment_accounting
 {
@@ -21,6 +22,10 @@ namespace equipment_accounting
             StartPosition = FormStartPosition.CenterScreen;
 
             db = new DataBase("MyConnectionStringSql");
+
+            comboBox_names.SelectedIndexChanged += comboBox_names_SelectedIndexChanged;
+
+            btnSave.Enabled = false;
         }
 
         private void frmAccounting_1_Load(object sender, EventArgs e)
@@ -28,6 +33,8 @@ namespace equipment_accounting
             // Загружаем доступные года и месяцы при загрузке формы
             LoadYears();
             LoadMonth();
+
+            LoadUserLogins();
         }
 
         private void DataGirdSize()
@@ -193,6 +200,94 @@ namespace equipment_accounting
                     MessageBox.Show("Вы можете редактировать только столбец с текущей датой.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        // Метод для загрузки логинов пользователей в выпадающий список
+        private void LoadUserLogins()
+        {
+            try
+            {
+                List<string> logins = db.GetUniqueUserLogins();
+
+                comboBox_names.Items.AddRange(logins.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке логинов: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBox_names_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_names.SelectedIndex != -1)
+            {
+                btnSave.Enabled = true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+            }
+        }
+
+        private void ExportToExcel()
+        {
+            try
+            {
+                Excel.Application excelApp = new Excel.Application();
+                excelApp.Visible = true; // Отображаем Excel
+
+                // Добавляем новую книгу
+                Excel.Workbook workbook = excelApp.Workbooks.Add();
+
+                // Добавляем новый лист
+                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets.Add();
+                worksheet.Name = "Data";
+
+                // Заполняем заголовки столбцов
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                }
+
+                // Заполняем данные из DataGridView
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+
+                // Добавляем данные из ComboBox
+                int lastRow = dataGridView1.Rows.Count + 3; // Переходим на следующую строку после данных DataGridView
+                worksheet.Cells[lastRow, 1] = "Выбранное значение в ComboBox:";
+                worksheet.Cells[lastRow, 2] = comboBox_names.SelectedItem.ToString();
+
+                // Показываем диалоговое окно сохранения файла
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Сохраняем файл
+                    workbook.SaveAs(saveFileDialog.FileName);
+                }
+
+                // Освобождаем ресурсы Excel
+                workbook.Close();
+                excelApp.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при экспорте данных в Excel: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExportToExcel();
         }
     }
 }

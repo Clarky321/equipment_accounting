@@ -40,3 +40,4 @@ C:\loran-project\stop\equipment_accounting\equipment_accounting\equipment_accoun
 C:\loran-project\stop\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.exe
 C:\loran-project\stop\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.pdb
 C:\loran-project\stop\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.frmAdmin_panel.resources
+C:\loran-project\stop\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.csproj.ResolveComReference.cache
