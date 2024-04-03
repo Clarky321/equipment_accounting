@@ -22,10 +22,44 @@ namespace equipment_accounting
             StartPosition = FormStartPosition.CenterScreen;
 
             db = new DataBase("MyConnectionStringSql");
+        }
 
-            comboBox_names.SelectedIndexChanged += comboBox_names_SelectedIndexChanged;
+        private void LoadResponsiblePersons()
+        {
+            try
+            {
+                // Убедитесь, что соединение с базой данных открыто
+                db.openConnection();
 
-            btnSave.Enabled = false;
+                // Запрос к базе данных для выборки всех имен ответственных лиц
+                string query = "SELECT id, name FROM ResponsiblePersons";
+                SqlCommand command = db.ExecuteQuery(query);
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Заполняем выпадающий список именами ответственных лиц
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
+                comboBoxColumn.HeaderText = "Ответственный";
+                comboBoxColumn.DataPropertyName = "responsible_person_id"; // Связываем столбец с полем responsible_person_id таблицы technique_morning
+                comboBoxColumn.DataSource = dataTable;
+                comboBoxColumn.DisplayMember = "name";
+                comboBoxColumn.ValueMember = "id";
+
+                // Добавляем столбец в DataGridView
+                dataGridView1.Columns.Add(comboBoxColumn);
+
+                dataGridView1.Columns["responsible_person_id"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Важно закрыть соединение после использования
+                db.closeConnection();
+            }
         }
 
         private void frmAccounting_1_Load(object sender, EventArgs e)
@@ -34,7 +68,7 @@ namespace equipment_accounting
             LoadYears();
             LoadMonth();
 
-            LoadUserLogins();
+            LoadResponsiblePersons();
         }
 
         private void DataGirdSize()
@@ -148,17 +182,21 @@ namespace equipment_accounting
                     int webcamNlo = row.Cells["webcam_nlo"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_nlo"].Value) : 0;
                     int webcamTower = row.Cells["webcam_tower"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_tower"].Value) : 0;
 
+                    // Получаем id выбранного ответственного лица
+                    int responsiblePersonId = row.Cells["responsible_person_id"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["responsible_person_id"].Value) : 0;
+
                     // Создаем SQL-запрос в зависимости от того, новая это строка или уже существующая
                     string query = "";
                     if (id == 0)
                     {
-                        query = $"INSERT INTO technique_morning (dates, loptops_1, loptops_2, projectors, webcam_logitech, webcam_nlo, webcam_tower) " +
-                                $"VALUES ('{date.ToString("yyyy-MM-dd")}', {loptops1}, {loptops2}, {projectors}, {webcamLogitech}, {webcamNlo}, {webcamTower})";
+                        query = $"INSERT INTO technique_morning (dates, loptops_1, loptops_2, projectors, webcam_logitech, webcam_nlo, webcam_tower, responsible_person_id) " +
+                                $"VALUES ('{date.ToString("yyyy-MM-dd")}', {loptops1}, {loptops2}, {projectors}, {webcamLogitech}, {webcamNlo}, {webcamTower}, {responsiblePersonId})";
                     }
                     else
                     {
                         query = $"UPDATE technique_morning SET dates = '{date.ToString("yyyy-MM-dd")}', loptops_1 = {loptops1}, loptops_2 = {loptops2}, " +
-                                $"projectors = {projectors}, webcam_logitech = {webcamLogitech}, webcam_nlo = {webcamNlo}, webcam_tower = {webcamTower} " +
+                                $"projectors = {projectors}, webcam_logitech = {webcamLogitech}, webcam_nlo = {webcamNlo}, webcam_tower = {webcamTower}, " +
+                                $"responsible_person_id = {responsiblePersonId} " +
                                 $"WHERE id = {id}";
                     }
 
@@ -190,104 +228,29 @@ namespace equipment_accounting
             }
             else
             {
-                DateTime currentDate = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells["dates"].Value.ToString());
+                object cellValue = dataGridView1.Rows[e.RowIndex].Cells["dates"].Value;
 
-                DateTime now = DateTime.Now.Date;
-
-                if (columnIndex != dataGridView1.Columns["dates"].Index && currentDate != now)
+                // Проверяем, что значение ячейки не равно null и не пустое
+                if (cellValue != null && !string.IsNullOrWhiteSpace(cellValue.ToString()))
                 {
-                    e.Cancel = true;
-                    MessageBox.Show("Вы можете редактировать только столбец с текущей датой.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        // Метод для загрузки логинов пользователей в выпадающий список
-        private void LoadUserLogins()
-        {
-            try
-            {
-                List<string> logins = db.GetUniqueUserLogins();
-
-                comboBox_names.Items.AddRange(logins.ToArray());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при загрузке логинов: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void comboBox_names_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox_names.SelectedIndex != -1)
-            {
-                btnSave.Enabled = true;
-            }
-            else
-            {
-                btnSave.Enabled = false;
-            }
-        }
-
-        private void ExportToExcel()
-        {
-            try
-            {
-                Excel.Application excelApp = new Excel.Application();
-                excelApp.Visible = true; // Отображаем Excel
-
-                // Добавляем новую книгу
-                Excel.Workbook workbook = excelApp.Workbooks.Add();
-
-                // Добавляем новый лист
-                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets.Add();
-                worksheet.Name = "Data";
-
-                // Заполняем заголовки столбцов
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
-                {
-                    worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
-                }
-
-                // Заполняем данные из DataGridView
-                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-                {
-                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    // Пытаемся преобразовать значение в объект DateTime
+                    if (DateTime.TryParse(cellValue.ToString(), out DateTime currentDate))
                     {
-                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        DateTime now = DateTime.Now.Date;
+
+                        if (columnIndex != dataGridView1.Columns["dates"].Index && currentDate != now)
+                        {
+                            e.Cancel = true;
+                            MessageBox.Show("Вы можете редактировать только столбец с текущей датой.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный формат даты.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        e.Cancel = true;
                     }
                 }
-
-                // Добавляем данные из ComboBox
-                int lastRow = dataGridView1.Rows.Count + 3; // Переходим на следующую строку после данных DataGridView
-                worksheet.Cells[lastRow, 1] = "Выбранное значение в ComboBox:";
-                worksheet.Cells[lastRow, 2] = comboBox_names.SelectedItem.ToString();
-
-                // Показываем диалоговое окно сохранения файла
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                saveFileDialog.RestoreDirectory = true;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    // Сохраняем файл
-                    workbook.SaveAs(saveFileDialog.FileName);
-                }
-
-                // Освобождаем ресурсы Excel
-                workbook.Close();
-                excelApp.Quit();
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при экспорте данных в Excel: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ExportToExcel();
         }
     }
 }
