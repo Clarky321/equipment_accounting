@@ -9,14 +9,18 @@ namespace equipment_accounting
     {
         private DataBase db;
 
-        public event EventHandler SuccessfulLogin;
+        bool isAdmin = false;
 
-        public frmLog_in()
+        public event EventHandler<bool> SuccessfulLogin;
+
+        public frmLog_in(bool isAdmin)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
 
             db = new DataBase("MyConnectionStringSql");
+
+            this.isAdmin = isAdmin;
         }
 
         private void frmLog_in_Load(object sender, EventArgs e)
@@ -32,37 +36,43 @@ namespace equipment_accounting
             string passwordUser = btnText_password.Text;
 
             // Создаем SQL запрос для проверки авторизации пользователя
-            string query = $"SELECT * FROM register WHERE login_user = '{loginUser}' AND password_user = '{passwordUser}'";
+            string query = $"SELECT isAdmin FROM register WHERE login_user = '{loginUser}' AND password_user = '{passwordUser}'";
 
             try
             {
                 // Выполняем запрос к базе данных
                 var command = db.ExecuteQuery(query);
 
-                // Читаем результат выполнения запроса
-                SqlDataReader reader = command.ExecuteReader();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        isAdmin = reader.GetBoolean(0);
+                    }
+                }
 
                 // Если найдены записи, то авторизация успешна
-                if (reader.HasRows)
+                if (isAdmin)
                 {
-                    // Выводим сообщение об успешной авторизации
-                    MessageBox.Show("Вы вошли в систему", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    SuccessfulLogin?.Invoke(this, new EventArgs());
+                    // Администратор вошел в систему
+                    MessageBox.Show("Вы вошли в систему как администратор", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                // Иначе выводим сообщение о неверных данных
                 else
                 {
-                    MessageBox.Show("Неверный логин или пароль", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Пользователь вошел в систему
+                    MessageBox.Show("Вы вошли в систему", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                // Закрываем соединение с базой данных
-                db.closeConnection();
+
+                // Вызываем событие успешной авторизации
+                SuccessfulLogin?.Invoke(this, isAdmin);
             }
             catch (Exception ex)
             {
                 // В случае ошибки выводим сообщение с ошибкой
                 MessageBox.Show("Ошибка при выполнении запроса: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            }
+            finally
+            {
                 // Закрываем соединение с базой данных
                 db.closeConnection();
             }
@@ -94,6 +104,12 @@ namespace equipment_accounting
         {
             // Выходим из приложения
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmSign_up sign_Up = new frmSign_up();
+            sign_Up.ShowDialog();
         }
     }
 }

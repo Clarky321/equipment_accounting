@@ -31,9 +31,9 @@
             this.btn_tech1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выйтиИзПриложенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.администрированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_tech2 = new System.Windows.Forms.Button();
-            this.выйтиИзПриложенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,11 +69,18 @@
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
+            // выйтиИзПриложенияToolStripMenuItem
+            // 
+            this.выйтиИзПриложенияToolStripMenuItem.Name = "выйтиИзПриложенияToolStripMenuItem";
+            this.выйтиИзПриложенияToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
+            this.выйтиИзПриложенияToolStripMenuItem.Text = "Выйти из приложения";
+            // 
             // администрированиеToolStripMenuItem
             // 
             this.администрированиеToolStripMenuItem.Name = "администрированиеToolStripMenuItem";
             this.администрированиеToolStripMenuItem.Size = new System.Drawing.Size(199, 29);
             this.администрированиеToolStripMenuItem.Text = "Администрирование";
+            this.администрированиеToolStripMenuItem.Click += new System.EventHandler(this.администрированиеToolStripMenuItem_Click);
             // 
             // btn_tech2
             // 
@@ -85,12 +92,6 @@
             this.btn_tech2.Text = "Отчёт (вечер)";
             this.btn_tech2.UseVisualStyleBackColor = true;
             this.btn_tech2.Click += new System.EventHandler(this.btn_tech2_Click);
-            // 
-            // выйтиИзПриложенияToolStripMenuItem
-            // 
-            this.выйтиИзПриложенияToolStripMenuItem.Name = "выйтиИзПриложенияToolStripMenuItem";
-            this.выйтиИзПриложенияToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.выйтиИзПриложенияToolStripMenuItem.Text = "Выйти из приложения";
             // 
             // frmMenu
             // 

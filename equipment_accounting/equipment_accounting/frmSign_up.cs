@@ -81,9 +81,9 @@ namespace equipment_accounting
 
                 MessageBox.Show("Регистрация успешно завершена", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                frmLog_in log_In = new frmLog_in();
-                log_In.ShowDialog();
-                Hide();
+                //frmLog_in log_In = new frmLog_in();
+                //log_In.ShowDialog();
+                //Hide();
             }
             catch (Exception ex)
             {
@@ -93,10 +93,10 @@ namespace equipment_accounting
 
         private void AccountAuthLabel_Click(object sender, EventArgs e)
         {
-            frmLog_in log_In = new frmLog_in();
-            Hide();
-            log_In.ShowDialog();
-            Show();
+            //frmLog_in log_In = new frmLog_in();
+            //Hide();
+            //log_In.ShowDialog();
+            //Show();
         }
     }
 }

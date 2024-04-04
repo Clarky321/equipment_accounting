@@ -12,10 +12,24 @@ namespace equipment_accounting
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        private bool isAdmin = false;
+
+        public frmMenu(bool isAdmin)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+
+            this.isAdmin = isAdmin;
+
+            HideAdminPanelIfNeeded();
+        }
+
+        private void HideAdminPanelIfNeeded()
+        {
+            if (!isAdmin)
+            {
+                администрированиеToolStripMenuItem.Enabled = false;
+            }
         }
 
         public void LockForm()
@@ -38,6 +52,12 @@ namespace equipment_accounting
         {
             frmAccounting_2 accounting_2 = new frmAccounting_2();
             accounting_2.ShowDialog();
+        }
+
+        private void администрированиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdmin_panel admin_Panel = new frmAdmin_panel();
+            admin_Panel.ShowDialog();
         }
     }
 }

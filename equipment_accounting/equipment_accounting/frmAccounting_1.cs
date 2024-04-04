@@ -24,51 +24,11 @@ namespace equipment_accounting
             db = new DataBase("MyConnectionStringSql");
         }
 
-        private void LoadResponsiblePersons()
-        {
-            try
-            {
-                // Убедитесь, что соединение с базой данных открыто
-                db.openConnection();
-
-                // Запрос к базе данных для выборки всех имен ответственных лиц
-                string query = "SELECT id, name FROM ResponsiblePersons";
-                SqlCommand command = db.ExecuteQuery(query);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                // Заполняем выпадающий список именами ответственных лиц
-                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-                comboBoxColumn.HeaderText = "Ответственный";
-                comboBoxColumn.DataPropertyName = "responsible_person_id"; // Связываем столбец с полем responsible_person_id таблицы technique_morning
-                comboBoxColumn.DataSource = dataTable;
-                comboBoxColumn.DisplayMember = "name";
-                comboBoxColumn.ValueMember = "id";
-
-                // Добавляем столбец в DataGridView
-                dataGridView1.Columns.Add(comboBoxColumn);
-
-                dataGridView1.Columns["responsible_person_id"].Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                // Важно закрыть соединение после использования
-                db.closeConnection();
-            }
-        }
-
         private void frmAccounting_1_Load(object sender, EventArgs e)
         {
             // Загружаем доступные года и месяцы при загрузке формы
             LoadYears();
             LoadMonth();
-
-            LoadResponsiblePersons();
         }
 
         private void DataGirdSize()
@@ -87,6 +47,7 @@ namespace equipment_accounting
             dataGridView1.Columns["webcam_logitech"].HeaderText = "Веб-камера Logitech";
             dataGridView1.Columns["webcam_nlo"].HeaderText = "Веб-камера(круглая)";
             dataGridView1.Columns["webcam_tower"].HeaderText = "Веб-камера(башня)";
+            dataGridView1.Columns["names"].HeaderText = "Ответственный";
         }
 
         private void UpdateDataGridView()
@@ -181,23 +142,20 @@ namespace equipment_accounting
                     int webcamLogitech = row.Cells["webcam_logitech"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_logitech"].Value) : 0;
                     int webcamNlo = row.Cells["webcam_nlo"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_nlo"].Value) : 0;
                     int webcamTower = row.Cells["webcam_tower"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["webcam_tower"].Value) : 0;
-
-                    // Получаем id выбранного ответственного лица
-                    int responsiblePersonId = row.Cells["responsible_person_id"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["responsible_person_id"].Value) : 0;
+                    string Names = row.Cells["names"].Value != DBNull.Value ? row.Cells["names"].Value.ToString() : string.Empty;
 
                     // Создаем SQL-запрос в зависимости от того, новая это строка или уже существующая
                     string query = "";
                     if (id == 0)
                     {
-                        query = $"INSERT INTO technique_morning (dates, loptops_1, loptops_2, projectors, webcam_logitech, webcam_nlo, webcam_tower, responsible_person_id) " +
-                                $"VALUES ('{date.ToString("yyyy-MM-dd")}', {loptops1}, {loptops2}, {projectors}, {webcamLogitech}, {webcamNlo}, {webcamTower}, {responsiblePersonId})";
+                        query = $"INSERT INTO technique_morning (dates, loptops_1, loptops_2, projectors, webcam_logitech, webcam_nlo, webcam_tower, names) " +
+                                $"VALUES ('{date.ToString("yyyy-MM-dd")}', {loptops1}, {loptops2}, {projectors}, {webcamLogitech}, {webcamNlo}, {webcamTower}, '{Names}')";
                     }
                     else
                     {
                         query = $"UPDATE technique_morning SET dates = '{date.ToString("yyyy-MM-dd")}', loptops_1 = {loptops1}, loptops_2 = {loptops2}, " +
                                 $"projectors = {projectors}, webcam_logitech = {webcamLogitech}, webcam_nlo = {webcamNlo}, webcam_tower = {webcamTower}, " +
-                                $"responsible_person_id = {responsiblePersonId} " +
-                                $"WHERE id = {id}";
+                                $"names = '{Names}' WHERE id = {id}";
                     }
 
                     // Выполняем SQL-запрос
@@ -251,6 +209,79 @@ namespace equipment_accounting
                     }
                 }
             }
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["names"].Index && e.RowIndex != -1)
+            {
+                DataGridViewComboBoxCell comboCell = new DataGridViewComboBoxCell();
+
+                comboCell.Items.AddRange("Вареничев Н.В",
+                                         "Копченов М.В",
+                                         "Кулагин В.В",
+                                         "Москалев Р.В",
+                                         "Рябов С.Д",
+                                         "Рясов И.Д",
+                                         "Цывинский А.Ю");
+
+                dataGridView1[e.ColumnIndex, e.RowIndex] = comboCell;
+            }
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["names"].Index && e.RowIndex != -1)
+            {
+                string selectedValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+
+                int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
+
+                string query = $"UPDATE technique_morning SET names = '{selectedValue}' WHERE id = {id}";
+            }
+        }
+
+        private void ExportToExcelByMonth()
+        {
+            // Создаем новый экземпляр Excel
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Add();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DateTime date = Convert.ToDateTime(row.Cells["dates"].Value);
+
+                // Получаем или создаем лист Excel для текущего месяца
+                Excel.Worksheet sheet = null;
+                try
+                {
+                    sheet = workbook.Sheets[date.ToString("MMMM yyyy")];
+                }
+                catch
+                {
+                    sheet = workbook.Sheets.Add();
+                    sheet.Name = date.ToString("MMMM yyyy");
+                }
+
+                // Заполняем данные в текущем листе
+                int rowIndex = sheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row + 1;
+                sheet.Cells[rowIndex, 1].Value = row.Cells["dates"].Value;
+                sheet.Cells[rowIndex, 2].Value = row.Cells["loptops_1"].Value;
+                sheet.Cells[rowIndex, 3].Value = row.Cells["loptops_2"].Value;
+                sheet.Cells[rowIndex, 4].Value = row.Cells["projectors"].Value;
+                sheet.Cells[rowIndex, 5].Value = row.Cells["webcam_logitech"].Value;
+                sheet.Cells[rowIndex, 6].Value = row.Cells["webcam_nlo"].Value;
+                sheet.Cells[rowIndex, 7].Value = row.Cells["webcam_tower"].Value;
+                sheet.Cells[rowIndex, 8].Value = row.Cells["names"].Value;
+            }
+
+            // Отображаем Excel
+            excelApp.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExportToExcelByMonth();
         }
     }
 }
