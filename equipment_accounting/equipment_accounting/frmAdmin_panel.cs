@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace equipment_accounting
@@ -35,7 +28,7 @@ namespace equipment_accounting
         {
             try
             {
-                db.openConnection();
+                db.OpenConnection();
 
                 if (db.IsConnectionOpen())
                 {
@@ -54,7 +47,7 @@ namespace equipment_accounting
             }
             finally
             {
-                db.closeConnection();
+                db.CloseConnection();
             }
         }
     }

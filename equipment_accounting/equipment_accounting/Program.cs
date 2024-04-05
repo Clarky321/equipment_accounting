@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -32,6 +33,7 @@ namespace equipment_accounting
 
                 ShowForm(menuForm);
                 ShowForm(loginForm);
+
                 Interlocked.Increment(ref openForms);
                 Interlocked.Increment(ref openForms);
             }
@@ -61,27 +63,24 @@ namespace equipment_accounting
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var menuForm = new frmMenu();
-            var loginForm = new frmLog_in();
+            bool isAdminDefault = false;
+
+            var menuForm = new frmMenu(isAdminDefault);
+            var loginForm = new frmLog_in(isAdminDefault);
 
             var context = new MultiFormContext(menuForm, loginForm);
 
             loginForm.SuccessfulLogin += (s, isAdmin) =>
             {
-                // Передаем isAdmin в конструктор формы меню
-                var menuForm = new frmMenu(isAdmin);
-
-                // Убираем создание лишней формы авторизации
-                //var context = new MultiFormContext(menuForm, loginForm);
-
-                // Разрешаем доступ к форме меню после успешной аутентификации
-                context.AllowAccessToMenu();
-
-                // Прячем форму авторизации после успешной аутентификации
                 loginForm.Hide();
 
-                // Показываем только форму меню
+                menuForm.SetAdminAccess(isAdmin);
+
                 context.ShowForm(menuForm);
+
+                context.AllowAccessToMenu();
+
+                menuForm.Show();
             };
 
             Application.Run(context);

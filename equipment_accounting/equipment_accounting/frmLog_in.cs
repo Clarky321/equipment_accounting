@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace equipment_accounting
@@ -40,10 +40,12 @@ namespace equipment_accounting
 
             try
             {
+                db.OpenConnection();
+
                 // Выполняем запрос к базе данных
                 var command = db.ExecuteQuery(query);
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
@@ -74,7 +76,7 @@ namespace equipment_accounting
             finally
             {
                 // Закрываем соединение с базой данных
-                db.closeConnection();
+                db.CloseConnection();
             }
         }
 

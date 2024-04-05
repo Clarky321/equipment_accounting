@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using MySql.Data.MySqlClient;
 
 namespace equipment_accounting
 {
@@ -58,8 +59,8 @@ namespace equipment_accounting
                 int month = comboBox_month.SelectedIndex + 1;
 
                 string query = $"SELECT * FROM technique_morning WHERE YEAR(dates) = {year} AND MONTH(dates) = {month}";
-                SqlCommand command = db.ExecuteQuery(query);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
 
@@ -80,8 +81,8 @@ namespace equipment_accounting
             {
                 // Запрос к базе данных для выборки уникальных годов
                 string query = "SELECT DISTINCT YEAR(dates) AS Year FROM technique_morning";
-                SqlCommand command = db.ExecuteQuery(query);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
 

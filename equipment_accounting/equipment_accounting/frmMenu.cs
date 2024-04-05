@@ -21,25 +21,43 @@ namespace equipment_accounting
 
             this.isAdmin = isAdmin;
 
-            HideAdminPanelIfNeeded();
+            UpdateFormAccess();
         }
 
-        private void HideAdminPanelIfNeeded()
+        private void UpdateFormAccess()
         {
             if (!isAdmin)
             {
-                администрированиеToolStripMenuItem.Enabled = false;
+                LockForm();
             }
+            else
+            {
+                UnlockForm();
+            }
+        }
+
+        public void SetAdminAccess(bool isAdmin)
+        {
+            this.isAdmin = isAdmin;
+            администрированиеToolStripMenuItem.Enabled = isAdmin;
+
+            //UpdateFormAccess();
         }
 
         public void LockForm()
         {
-            Enabled = false;
+            foreach (Control control in Controls)
+            {
+                control.Enabled = false;
+            }
         }
 
         public void UnlockForm()
         {
-            Enabled = true;
+            foreach (Control control in Controls)
+            {
+                control.Enabled = true;
+            }
         }
 
         private void btn_tech1_Click(object sender, EventArgs e)

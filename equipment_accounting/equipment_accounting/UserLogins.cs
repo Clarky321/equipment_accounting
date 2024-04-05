@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace equipment_accounting
 {
@@ -8,9 +8,9 @@ namespace equipment_accounting
     {
         private readonly string connectionString;
 
-        public UserLogins(string connectionString)
+        public UserLogins(string MyConnectionStringSql)
         {
-            this.connectionString = connectionString;
+            connectionString = MyConnectionStringSql;
         }
 
         public List<string> GetUniqueUserLogins()
@@ -19,12 +19,12 @@ namespace equipment_accounting
 
             string query = "SELECT DISTINCT login_user FROM register";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
