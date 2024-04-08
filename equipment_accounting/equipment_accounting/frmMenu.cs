@@ -73,7 +73,7 @@ namespace equipment_accounting
 
         private void btn_tech2_Click(object sender, EventArgs e)
         {
-            frmAccounting_2 accounting_2 = new frmAccounting_2();
+            frmAccounting_2_1 accounting_2 = new frmAccounting_2_1();
             accounting_2.ShowDialog();
         }
 

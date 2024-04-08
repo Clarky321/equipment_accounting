@@ -5,11 +5,11 @@ using MySql.Data.MySqlClient;
 
 namespace equipment_accounting
 {
-    public partial class frmAccounting_2 : Form
+    public partial class frmAccounting_2_1 : Form
     {
         private DataBase db;
 
-        public frmAccounting_2()
+        public frmAccounting_2_1()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -19,8 +19,9 @@ namespace equipment_accounting
             dataGridView1.AllowUserToAddRows = false;
         }
 
-        private void frmAccounting_2_Load(object sender, EventArgs e)
+        private void frmAccounting_2_Load_1(object sender, EventArgs e)
         {
+            // Загружаем доступные года и месяцы при загрузке формы
             LoadYears();
             LoadMonth();
         }
@@ -241,7 +242,7 @@ namespace equipment_accounting
 
             float heightRatio = (float)Height / MinimumSize.Height;
 
-            foreach (Control control in Controls)
+            foreach ( Control control in Controls )
             {
                 control.Left = (int)(control.Left * widthRatio);
                 control.Top = (int)(control.Top * heightRatio);
