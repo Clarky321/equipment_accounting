@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.btn_tech1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,13 +40,15 @@
             // 
             // btn_tech1
             // 
+            this.btn_tech1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_tech1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_tech1.Location = new System.Drawing.Point(13, 125);
             this.btn_tech1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_tech1.Name = "btn_tech1";
-            this.btn_tech1.Size = new System.Drawing.Size(784, 49);
+            this.btn_tech1.Size = new System.Drawing.Size(589, 49);
             this.btn_tech1.TabIndex = 0;
             this.btn_tech1.Text = "Отчёт (утро)";
-            this.btn_tech1.UseVisualStyleBackColor = true;
+            this.btn_tech1.UseVisualStyleBackColor = false;
             this.btn_tech1.Click += new System.EventHandler(this.btn_tech1_Click);
             // 
             // menuStrip1
@@ -57,7 +60,7 @@
             this.администрированиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(810, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(615, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,6 +77,7 @@
             this.выйтиИзПриложенияToolStripMenuItem.Name = "выйтиИзПриложенияToolStripMenuItem";
             this.выйтиИзПриложенияToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
             this.выйтиИзПриложенияToolStripMenuItem.Text = "Выйти из приложения";
+            this.выйтиИзПриложенияToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзПриложенияToolStripMenuItem_Click);
             // 
             // администрированиеToolStripMenuItem
             // 
@@ -84,27 +88,30 @@
             // 
             // btn_tech2
             // 
+            this.btn_tech2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_tech2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_tech2.Location = new System.Drawing.Point(13, 233);
             this.btn_tech2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_tech2.Name = "btn_tech2";
-            this.btn_tech2.Size = new System.Drawing.Size(784, 49);
+            this.btn_tech2.Size = new System.Drawing.Size(589, 49);
             this.btn_tech2.TabIndex = 2;
             this.btn_tech2.Text = "Отчёт (вечер)";
-            this.btn_tech2.UseVisualStyleBackColor = true;
+            this.btn_tech2.UseVisualStyleBackColor = false;
             this.btn_tech2.Click += new System.EventHandler(this.btn_tech2_Click);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 619);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(615, 593);
             this.Controls.Add(this.btn_tech2);
             this.Controls.Add(this.btn_tech1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMenu";
-            this.Text = "frmMenu";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

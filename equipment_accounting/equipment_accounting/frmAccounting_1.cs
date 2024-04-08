@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
 
 namespace equipment_accounting
@@ -23,6 +15,8 @@ namespace equipment_accounting
             StartPosition = FormStartPosition.CenterScreen;
 
             db = new DataBase("MyConnectionStringSql");
+
+            dataGridView1.AllowUserToAddRows = false;
         }
 
         private void frmAccounting_1_Load(object sender, EventArgs e)
@@ -242,47 +236,19 @@ namespace equipment_accounting
             }
         }
 
-        private void ExportToExcelByMonth()
+        private void frmMenu_Resize(object sender, EventArgs e)
         {
-            // Создаем новый экземпляр Excel
-            Excel.Application excelApp = new Excel.Application();
-            Excel.Workbook workbook = excelApp.Workbooks.Add();
+            float widthRatio = (float)Width / MinimumSize.Width;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            float heightRatio = (float)Height / MinimumSize.Height;
+
+            foreach ( Control control in Controls )
             {
-                DateTime date = Convert.ToDateTime(row.Cells["dates"].Value);
-
-                // Получаем или создаем лист Excel для текущего месяца
-                Excel.Worksheet sheet = null;
-                try
-                {
-                    sheet = workbook.Sheets[date.ToString("MMMM yyyy")];
-                }
-                catch
-                {
-                    sheet = workbook.Sheets.Add();
-                    sheet.Name = date.ToString("MMMM yyyy");
-                }
-
-                // Заполняем данные в текущем листе
-                int rowIndex = sheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell).Row + 1;
-                sheet.Cells[rowIndex, 1].Value = row.Cells["dates"].Value;
-                sheet.Cells[rowIndex, 2].Value = row.Cells["loptops_1"].Value;
-                sheet.Cells[rowIndex, 3].Value = row.Cells["loptops_2"].Value;
-                sheet.Cells[rowIndex, 4].Value = row.Cells["projectors"].Value;
-                sheet.Cells[rowIndex, 5].Value = row.Cells["webcam_logitech"].Value;
-                sheet.Cells[rowIndex, 6].Value = row.Cells["webcam_nlo"].Value;
-                sheet.Cells[rowIndex, 7].Value = row.Cells["webcam_tower"].Value;
-                sheet.Cells[rowIndex, 8].Value = row.Cells["names"].Value;
+                control.Left = (int)(control.Left * widthRatio);
+                control.Top = (int)(control.Top * heightRatio);
+                control.Width = (int)(control.Width * widthRatio);
+                control.Height = (int)(control.Height * heightRatio);
             }
-
-            // Отображаем Excel
-            excelApp.Visible = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ExportToExcelByMonth();
         }
     }
 }

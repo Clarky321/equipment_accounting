@@ -21,6 +21,8 @@ namespace equipment_accounting
             db = new DataBase("MyConnectionStringSql");
 
             this.isAdmin = isAdmin;
+
+            btnText_password.UseSystemPasswordChar = true;
         }
 
         private void frmLog_in_Load(object sender, EventArgs e)
@@ -50,6 +52,12 @@ namespace equipment_accounting
                     if (reader.Read())
                     {
                         isAdmin = reader.GetBoolean(0);
+                    }
+                    else
+                    {
+                        // Если записи не найдены, выводим сообщение об ошибке
+                        MessageBox.Show("Неправильный логин или пароль", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Завершаем метод, чтобы предотвратить дальнейшие действия
                     }
                 }
 
@@ -114,10 +122,9 @@ namespace equipment_accounting
             return isAdmin;
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void check_password_CheckedChanged(object sender, EventArgs e)
         {
-            // Выходим из приложения
-            Close();
+            btnText_password.UseSystemPasswordChar = !check_password.Checked;
         }
     }
 }

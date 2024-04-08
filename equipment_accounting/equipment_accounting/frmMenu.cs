@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace equipment_accounting
@@ -13,6 +6,7 @@ namespace equipment_accounting
     public partial class frmMenu : Form
     {
         private bool isAdmin = false;
+        private bool isLoggedIn = false;
 
         public frmMenu(bool isAdmin)
         {
@@ -21,20 +15,34 @@ namespace equipment_accounting
 
             this.isAdmin = isAdmin;
 
-            UpdateFormAccess();
+            //LockForm();
+        }
+
+        private void LockForm()
+        {
+            foreach (Control control in Controls)
+            {
+                control.Enabled = false;
+            }
+        }
+
+        private void UnlockForm()
+        {
+            foreach (Control control in Controls)
+            {
+                control.Enabled = true;
+            }
         }
 
         private void UpdateFormAccess()
         {
-            this.Show();
-
-            if (!isAdmin)
-            {
-                LockForm();
-            }
-            else
+            if (isLoggedIn)
             {
                 UnlockForm();
+                if (!isAdmin)
+                {
+                    LockFormForUser();
+                }
             }
         }
 
@@ -46,27 +54,15 @@ namespace equipment_accounting
             UpdateFormAccess();
         }
 
-        public void LockForm()
+        public void LockFormForUser()
         {
-            foreach (Control control in Controls)
-            {
-                if (control.Name != "администрированиеToolStripMenuItem")
-                {
-                    control.Enabled = true;
-                }
-                else
-                {
-                    control.Enabled = false;
-                }
-            }
+            администрированиеToolStripMenuItem.Enabled = false;
         }
 
-        public void UnlockForm()
+        public void LogIn()
         {
-            foreach (Control control in Controls)
-            {
-                control.Enabled = true;
-            }
+            isLoggedIn = true;
+            UpdateFormAccess();
         }
 
         private void btn_tech1_Click(object sender, EventArgs e)
@@ -85,6 +81,11 @@ namespace equipment_accounting
         {
             frmAdmin_panel admin_Panel = new frmAdmin_panel();
             admin_Panel.ShowDialog();
+        }
+
+        private void выйтиИзПриложенияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
