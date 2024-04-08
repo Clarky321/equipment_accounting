@@ -26,6 +26,8 @@ namespace equipment_accounting
 
         private void UpdateFormAccess()
         {
+            this.Show();
+
             if (!isAdmin)
             {
                 LockForm();
@@ -41,14 +43,21 @@ namespace equipment_accounting
             this.isAdmin = isAdmin;
             администрированиеToolStripMenuItem.Enabled = isAdmin;
 
-            //UpdateFormAccess();
+            UpdateFormAccess();
         }
 
         public void LockForm()
         {
             foreach (Control control in Controls)
             {
-                control.Enabled = false;
+                if (control.Name != "администрированиеToolStripMenuItem")
+                {
+                    control.Enabled = true;
+                }
+                else
+                {
+                    control.Enabled = false;
+                }
             }
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics.Eventing.Reader;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -11,30 +10,18 @@ namespace equipment_accounting
         {
             private int openForms;
 
-            private readonly Form menuForm;
-            private readonly Form loginForm;
+            private readonly frmMenu menuForm;
+            private readonly frmLog_in loginForm;
 
-            public MultiFormContext(Form menuForm, Form loginForm)
+            public MultiFormContext(frmMenu menuForm, frmLog_in loginForm)
             {
                 this.menuForm = menuForm;
                 this.loginForm = loginForm;
 
-                menuForm.FormClosed += (s, args) =>
-                {
-                    if (Interlocked.Decrement(ref openForms) == 0)
-                        ExitThread();
-                };
+                loginForm.SuccessfulLogin += OnSuccessfulLogin;
 
-                loginForm.FormClosed += (s, args) =>
-                {
-                    if (Interlocked.Decrement(ref openForms) == 0)
-                        ExitThread();
-                };
-
-                ShowForm(menuForm);
                 ShowForm(loginForm);
 
-                Interlocked.Increment(ref openForms);
                 Interlocked.Increment(ref openForms);
             }
 
@@ -51,9 +38,13 @@ namespace equipment_accounting
             }
 
             // Метод для разрешения доступа к форме меню после успешной аутентификации
-            public void AllowAccessToMenu()
+            private void OnSuccessfulLogin(object sender, bool isAdmin)
             {
-                menuForm.Enabled = true;
+                loginForm.Hide();
+
+                menuForm.SetAdminAccess(isAdmin);
+
+                ShowForm(menuForm);
             }
         }
 
@@ -63,25 +54,10 @@ namespace equipment_accounting
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            bool isAdminDefault = false;
-
-            var menuForm = new frmMenu(isAdminDefault);
-            var loginForm = new frmLog_in(isAdminDefault);
+            var loginForm = new frmLog_in(false); // Передаем false, так как не указываем явно, администратор это или нет
+            var menuForm = new frmMenu(false); // Передаем false, так как на старте неизвестно, администратор это или нет
 
             var context = new MultiFormContext(menuForm, loginForm);
-
-            loginForm.SuccessfulLogin += (s, isAdmin) =>
-            {
-                loginForm.Hide();
-
-                menuForm.SetAdminAccess(isAdmin);
-
-                context.ShowForm(menuForm);
-
-                context.AllowAccessToMenu();
-
-                menuForm.Show();
-            };
 
             Application.Run(context);
         }

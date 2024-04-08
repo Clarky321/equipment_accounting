@@ -29,7 +29,7 @@ namespace equipment_accounting
             LoadUserLogins();
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private void AuthAccouts()
         {
             // Получаем логин и пароль пользователя
             string loginUser = btnCombo_login.Text;
@@ -78,6 +78,13 @@ namespace equipment_accounting
                 // Закрываем соединение с базой данных
                 db.CloseConnection();
             }
+
+            this.Close();
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+           AuthAccouts();
         }
 
         // Метод для установки максимальной длины текстовых полей
@@ -102,16 +109,15 @@ namespace equipment_accounting
             }
         }
 
+        public bool IsAdminLogins()
+        {
+            return isAdmin;
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             // Выходим из приложения
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmSign_up sign_Up = new frmSign_up();
-            sign_Up.ShowDialog();
+            Close();
         }
     }
 }
