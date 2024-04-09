@@ -40,6 +40,8 @@
             // 
             // btn_tech1
             // 
+            this.btn_tech1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_tech1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_tech1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_tech1.Location = new System.Drawing.Point(13, 125);
@@ -60,7 +62,7 @@
             this.администрированиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(615, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(615, 36);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,7 +71,7 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выйтиИзПриложенияToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 32);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // выйтиИзПриложенияToolStripMenuItem
@@ -82,12 +84,14 @@
             // администрированиеToolStripMenuItem
             // 
             this.администрированиеToolStripMenuItem.Name = "администрированиеToolStripMenuItem";
-            this.администрированиеToolStripMenuItem.Size = new System.Drawing.Size(199, 29);
+            this.администрированиеToolStripMenuItem.Size = new System.Drawing.Size(199, 32);
             this.администрированиеToolStripMenuItem.Text = "Администрирование";
             this.администрированиеToolStripMenuItem.Click += new System.EventHandler(this.администрированиеToolStripMenuItem_Click);
             // 
             // btn_tech2
             // 
+            this.btn_tech2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_tech2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_tech2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_tech2.Location = new System.Drawing.Point(13, 233);

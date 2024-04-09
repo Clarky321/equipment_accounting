@@ -125,12 +125,6 @@
     <Compile Include="frmAccounting_2.Designer.cs">
       <DependentUpon>frmAccounting_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAccounting_2_1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAccounting_2_1.Designer.cs">
-      <DependentUpon>frmAccounting_2_1.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAccounting_1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     <Compile Include="UserLogins.cs" />
     <EmbeddedResource Include="frmAccounting_2.resx">
       <DependentUpon>frmAccounting_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAccounting_2_1.resx">
-      <DependentUpon>frmAccounting_2_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAccounting_1.resx">
       <DependentUpon>frmAccounting_1.cs</DependentUpon>

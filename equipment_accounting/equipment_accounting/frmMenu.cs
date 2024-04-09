@@ -73,7 +73,7 @@ namespace equipment_accounting
 
         private void btn_tech2_Click(object sender, EventArgs e)
         {
-            frmAccounting_2_1 accounting_2 = new frmAccounting_2_1();
+            frmAccounting_2 accounting_2 = new frmAccounting_2();
             accounting_2.ShowDialog();
         }
 
@@ -86,6 +86,21 @@ namespace equipment_accounting
         private void выйтиИзПриложенияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmMenu_Resize(object sender, EventArgs e)
+        {
+            float widthRatio = (float)Width / MinimumSize.Width;
+
+            float heightRatio = (float)Height / MinimumSize.Height;
+
+            foreach (Control control in Controls)
+            {
+                control.Left = (int)(control.Left * widthRatio);
+                control.Top = (int)(control.Top * heightRatio);
+                control.Width = (int)(control.Width * widthRatio);
+                control.Height = (int)(control.Height * heightRatio);
+            }
         }
     }
 }

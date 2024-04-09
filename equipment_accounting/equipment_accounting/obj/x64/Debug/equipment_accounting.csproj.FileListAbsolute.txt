@@ -105,4 +105,3 @@ C:\loran-project\Accounting\v2\equipment_accounting\equipment_accounting\equipme
 C:\loran-project\Accounting\v2\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
 C:\loran-project\Accounting\v2\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipmen.11D0E2F9.Up2Date
 C:\loran-project\Accounting\v2\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.frmAccounting_2.resources
-C:\loran-project\Accounting\v2\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.frmAccounting_2_1.resources
