@@ -35,6 +35,7 @@
             this.выйтиИзПриложенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.администрированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_tech2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             this.администрированиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(615, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(615, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,7 +72,7 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.выйтиИзПриложенияToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 32);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // выйтиИзПриложенияToolStripMenuItem
@@ -84,7 +85,7 @@
             // администрированиеToolStripMenuItem
             // 
             this.администрированиеToolStripMenuItem.Name = "администрированиеToolStripMenuItem";
-            this.администрированиеToolStripMenuItem.Size = new System.Drawing.Size(199, 32);
+            this.администрированиеToolStripMenuItem.Size = new System.Drawing.Size(199, 29);
             this.администрированиеToolStripMenuItem.Text = "Администрирование";
             this.администрированиеToolStripMenuItem.Click += new System.EventHandler(this.администрированиеToolStripMenuItem_Click);
             // 
@@ -103,12 +104,22 @@
             this.btn_tech2.UseVisualStyleBackColor = false;
             this.btn_tech2.Click += new System.EventHandler(this.btn_tech2_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(367, 564);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(235, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "created by Ryabov Sergay v. 1.0";
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(615, 593);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_tech2);
             this.Controls.Add(this.btn_tech1);
             this.Controls.Add(this.menuStrip1);
@@ -131,5 +142,6 @@
         private System.Windows.Forms.ToolStripMenuItem администрированиеToolStripMenuItem;
         private System.Windows.Forms.Button btn_tech2;
         private System.Windows.Forms.ToolStripMenuItem выйтиИзПриложенияToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
     }
 }

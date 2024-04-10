@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace equipment_accounting
 {
@@ -23,6 +23,17 @@ namespace equipment_accounting
             //dataGridView1.AllowUserToAddRows = false;
         }
 
+        private void frmAdmin_panel_Load(object sender, EventArgs e)
+        {
+            // вечер
+            selectedYear_1();
+            selectedMonth_1();
+
+            // утро
+            selectedYear_2();
+            selectedMonth_2();
+        }
+
         private void HeaderText()
         {
             dataGridView1.Columns[0].Visible = false;
@@ -35,34 +46,6 @@ namespace equipment_accounting
         private void DataGirdSize()
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void DisplayData()
-        {
-            try
-            {
-                db.OpenConnection();
-
-                string query = "SELECT * FROM register";
-
-                MySqlCommand command = db.ExecuteQuery(query);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                dataGridView1.DataSource = dataTable;
-
-                HeaderText();
-                DataGirdSize();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
         }
 
         // Вывод в Log Console
@@ -136,6 +119,35 @@ namespace equipment_accounting
             GetDatabaseInfo();
         }
 
+        private void DisplayData()
+        {
+            try
+            {
+                db.OpenConnection();
+
+                string query = "SELECT * FROM register";
+
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                dataGridView1.DataSource = dataTable;
+
+                HeaderText();
+                DataGirdSize();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке данных: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+
+                db.CloseConnection();
+            }
+        }
+
         private void sqlQuery()
         {
             try
@@ -184,7 +196,7 @@ namespace equipment_accounting
             sqlQuery();
         }
 
-        private void SaveChanges()
+        private void SaveDataInfo()
         {
             try
             {
@@ -192,35 +204,46 @@ namespace equipment_accounting
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (!row.IsNewRow && row.Cells[0].Value != null)
+                    // Проверяем, является ли строка новой (т.е. ее ID равен 0)
+                    if (row.IsNewRow)
+                        continue;
+
+                    // Собираем данные из ячеек строки
+                    int id_user = Convert.ToInt32(row.Cells["id_user"].Value);
+                    string login = row.Cells["login_user"].Value != DBNull.Value ? row.Cells["login_user"].Value.ToString() : string.Empty;
+                    string password = row.Cells["password_user"].Value != DBNull.Value ? row.Cells["password_user"].Value.ToString() : string.Empty;
+                    int isAdmin;
+
+                    // Проверяем значение ячейки на DBNull перед конвертацией в int
+                    if (row.Cells["isAdmin"].Value != DBNull.Value)
                     {
-                        int id = Convert.ToInt32(row.Cells["id_user"].Value);
-                        string login = row.Cells["login_user"].Value.ToString();
-                        string password = row.Cells["password_user"].Value.ToString();
-                        bool isAdmin = Convert.ToBoolean(row.Cells["isAdmin"].Value);
-
-                        if (id == 0)
-                        {
-                            string query = $"INSERT INTO register (login_user, password_user, isAdmin) VALUES ('{login}', '{password}', '{isAdmin}')";
-
-                            db.ExecuteQuery(query);
-                        }
-                        else
-                        {
-                            // Выполните запрос на обновление записи
-                            string query = $"UPDATE register SET login_user = '{login}', password_user = '{password}', isAdmin = '{isAdmin}'" +
-                                           $"WHERE id_user = {id}";
-
-                            db.ExecuteQuery(query);
-                        }
+                        isAdmin = Convert.ToInt32(row.Cells["isAdmin"].Value);
                     }
+                    else
+                    {
+                        isAdmin = 0; // Устанавливаем значение по умолчанию (0) если значение ячейки DBNull
+                    }
+
+                    // Создаем SQL-запрос в зависимости от того, новая это строка или уже существующая
+                    string query = "";
+                    if (id_user == 0)
+                    {
+                        query = $"INSERT INTO register (login_user, password_user, isAdmin) VALUES ('{login}', '{password}', {isAdmin})";
+                    }
+                    else
+                    {
+                        query = $"UPDATE register SET login_user = '{login}', password_user = '{password}', isAdmin = {isAdmin} WHERE id_user = {id_user}";
+                    }
+
+                    // Выполняем SQL-запрос
+                    db.ExecuteNonQuery(query);
                 }
 
-                AddLog("Log: Изменения сохранены успешно");
+                MessageBox.Show("Данные успешно сохранены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка при сохранении изменений: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -230,12 +253,224 @@ namespace equipment_accounting
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveChanges();
+            //SaveChanges();
+            SaveDataInfo();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             DisplayData();
+        }
+
+        private void selectedYear_1()
+        {
+            try
+            {
+                // Запрос к базе данных для выборки уникальных годов
+                string query = "SELECT DISTINCT YEAR(dates) AS Year FROM technique_night";
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Заполняем выпадающий список годов
+                comboBox_year1.DisplayMember = "Year";
+                comboBox_year1.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке годов из базы данных: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void selectedMonth_1()
+        {
+            try
+            {
+                // Заполняем выпадающий список месяцев
+                comboBox_month1.Items.AddRange(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthNames);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке месяцев: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void selectedYear_2()
+        {
+            try
+            {
+                // Запрос к базе данных для выборки уникальных годов
+                string query = "SELECT DISTINCT YEAR(dates) AS Year FROM technique_morning";
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Заполняем выпадающий список годов
+                comboBox_year2.DisplayMember = "Year";
+                comboBox_year2.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке годов из базы данных: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void selectedMonth_2()
+        {
+            try
+            {
+                // Заполняем выпадающий список месяцев
+                comboBox_month2.Items.AddRange(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.MonthNames);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при загрузке месяцев: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ImportToExcel(DataTable dataTable, int selectedYear, int selectedMonth)
+        {
+            try
+            {
+                Excel.Application excelApp = new Excel.Application();
+                excelApp.Visible = true; // Открывать Excel визуально
+
+                Excel.Workbook workbook = excelApp.Workbooks.Add();
+                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1];
+
+                // Добавляем заголовки столбцов
+                for (int i = 0; i < dataTable.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dataTable.Columns[i].ColumnName;
+                }
+
+                // Заполняем данные
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataTable.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataTable.Rows[i][j];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при экспорте данных в Excel: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnImportNight_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.OpenConnection();
+
+                // Получаем выбранные год и месяц из ComboBox'ов
+                int selectedYear = int.Parse(comboBox_year1.Text);
+                int selectedMonth = comboBox_month1.SelectedIndex + 1; // Получаем номер месяца
+
+                // Формируем SQL-запрос с учетом выбранного года и месяца
+                string query = "SELECT * FROM technique_night";
+
+                // Добавляем условие WHERE только если выбран год или месяц
+                if (selectedYear > 0 || selectedMonth > 0)
+                {
+                    query += " WHERE ";
+
+                    if (selectedYear > 0)
+                    {
+                        query += $"YEAR(dates) = {selectedYear}";
+
+                        if (selectedMonth > 0)
+                        {
+                            query += " AND ";
+                        }
+                    }
+
+                    if (selectedMonth > 0)
+                    {
+                        query += $"MONTH(dates) = {selectedMonth}";
+                    }
+                }
+
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                ImportToExcel(dataTable, selectedYear, selectedMonth);
+
+                AddLog("Log: Данные успешно экспортированы в Excel");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при экспорте данных в Excel: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
+        private void btnImportDay_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db.OpenConnection();
+
+                // Получаем выбранные год и месяц из ComboBox'ов
+                int selectedYear = int.Parse(comboBox_year2.Text);
+                int selectedMonth = comboBox_month2.SelectedIndex + 1; // Получаем номер месяца
+
+                // Формируем SQL-запрос с учетом выбранного года и месяца
+                string query = "SELECT * FROM technique_morning";
+
+                // Добавляем условие WHERE только если выбран год или месяц
+                if (selectedYear > 0 || selectedMonth > 0)
+                {
+                    query += " WHERE ";
+
+                    if (selectedYear > 0)
+                    {
+                        query += $"YEAR(dates) = {selectedYear}";
+
+                        if (selectedMonth > 0)
+                        {
+                            query += " AND ";
+                        }
+                    }
+
+                    if (selectedMonth > 0)
+                    {
+                        query += $"MONTH(dates) = {selectedMonth}";
+                    }
+                }
+
+                MySqlCommand command = db.ExecuteQuery(query);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                ImportToExcel(dataTable, selectedYear, selectedMonth);
+
+                AddLog("Log: Данные успешно экспортированы в Excel");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при экспорте данных в Excel: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmSign_up sign_Up = new frmSign_up();
+            sign_Up.ShowDialog();
         }
     }
 }

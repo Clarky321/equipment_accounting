@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace equipment_accounting
@@ -26,12 +19,16 @@ namespace equipment_accounting
         {
             btnText_login.MaxLength = 50;
             btnText_password.MaxLength = 50;
+
+            comboBox_isAdmin.Items.Add("Пользователь");
+            comboBox_isAdmin.Items.Add("Администратор");
         }
 
         private void btnReg_Click(object sender, EventArgs e)
         {
             string userLogin = btnText_login.Text;
             string userPassword = btnText_password.Text;
+            bool isAdmin = (comboBox_isAdmin.SelectedIndex == 1);
 
             if (string.IsNullOrEmpty(userLogin) || string.IsNullOrEmpty(userPassword)) 
             {
@@ -43,7 +40,7 @@ namespace equipment_accounting
             if (IsLoginUnique(userLogin))
             {
                 // Если логин уникален, регистрируем аккаунт
-                RegisterAccount(userLogin, userPassword);
+                RegisterAccount(userLogin, userPassword, isAdmin);
             }
             else
             {
@@ -71,32 +68,22 @@ namespace equipment_accounting
             return count == 0;
         }
 
-        private void RegisterAccount(string userLogin, string userPassword)
+        private void RegisterAccount(string userLogin, string userPassword, bool isAdmin)
         {
-            string query = $"INSERT INTO register (login_user, password_user) VALUES ('{userLogin}', '{userPassword}')";
+            string isAdminString = isAdmin ? "Администратор" : "Пользователь"; // Преобразуем булевое значение в строковое значение
+
+            string query = $"INSERT INTO register (login_user, password_user, isAdmin) VALUES ('{userLogin}', '{userPassword}', '{isAdminString}')";
 
             try
             {
                 db.ExecuteNonQuery(query);
 
                 MessageBox.Show("Регистрация успешно завершена", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //frmLog_in log_In = new frmLog_in();
-                //log_In.ShowDialog();
-                //Hide();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка при регистрации: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void AccountAuthLabel_Click(object sender, EventArgs e)
-        {
-            //frmLog_in log_In = new frmLog_in();
-            //Hide();
-            //log_In.ShowDialog();
-            //Show();
         }
     }
 }
