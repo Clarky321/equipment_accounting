@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -269,13 +270,17 @@ namespace equipment_accounting
 
         private void ImportToExcel(DataTable dataTable, int selectedYear, int selectedMonth)
         {
+            Excel.Application excelApp = null;
+            Excel.Workbook workbook = null;
+            Excel.Worksheet worksheet = null;
+
             try
             {
-                Excel.Application excelApp = new Excel.Application();
+                excelApp = new Excel.Application();
                 excelApp.Visible = true; // Открывать Excel визуально
 
-                Excel.Workbook workbook = excelApp.Workbooks.Add();
-                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1];
+                workbook = excelApp.Workbooks.Add();
+                worksheet = (Excel.Worksheet)workbook.Sheets[1];
 
                 // Добавляем заголовки столбцов
                 for (int i = 0; i < dataTable.Columns.Count; i++)
@@ -295,6 +300,29 @@ namespace equipment_accounting
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка при экспорте данных в Excel: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Освобождаем ресурсы
+                if (worksheet != null)
+                {
+                    Marshal.ReleaseComObject(worksheet);
+                    worksheet = null;
+                }
+
+                if (workbook != null)
+                {
+                    Marshal.ReleaseComObject(workbook);
+                    workbook = null;
+                }
+
+                if (excelApp != null)
+                {
+                    // Закрываем Excel приложение
+                    excelApp.Quit();
+                    Marshal.ReleaseComObject(excelApp);
+                    excelApp = null;
+                }
             }
         }
 

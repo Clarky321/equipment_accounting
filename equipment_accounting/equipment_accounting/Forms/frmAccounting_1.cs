@@ -9,7 +9,9 @@ namespace equipment_accounting
     {
         private DataBase db;
 
-        public frmAccounting_1()
+        private bool isAdmin = false;
+
+        public frmAccounting_1(bool isAdmin)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -17,6 +19,8 @@ namespace equipment_accounting
             db = new DataBase("MyConnectionStringSql");
 
             dataGridView1.AllowUserToAddRows = false;
+
+            this.isAdmin = isAdmin;
         }
 
         private void frmAccounting_1_Load(object sender, EventArgs e)
@@ -179,7 +183,7 @@ namespace equipment_accounting
                 e.Cancel = true;
                 MessageBox.Show("Редактирование даты запрещено.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else if(!isAdmin)
             {
                 object cellValue = dataGridView1.Rows[e.RowIndex].Cells["dates"].Value;
 
@@ -194,12 +198,12 @@ namespace equipment_accounting
                         if (columnIndex != dataGridView1.Columns["dates"].Index && currentDate != now)
                         {
                             e.Cancel = true;
-                            MessageBox.Show("Вы можете редактировать только столбец с текущей датой.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Вы можете редактировать только столбец с текущей датой.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Неверный формат даты.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Неверный формат даты.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         e.Cancel = true;
                     }
                 }
@@ -218,7 +222,8 @@ namespace equipment_accounting
                                          "Москалев Р.В",
                                          "Рябов С.Д",
                                          "Рясов И.Д",
-                                         "Цывинский А.Ю");
+                                         "Цывинский А.Ю",
+                                         "");
 
                 dataGridView1[e.ColumnIndex, e.RowIndex] = comboCell;
             }

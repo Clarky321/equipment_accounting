@@ -9,7 +9,9 @@ namespace equipment_accounting
     {
         private DataBase db;
 
-        public frmAccounting_2()
+        private bool isAdmin = false;
+
+        public frmAccounting_2(bool isAdmin)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -17,6 +19,8 @@ namespace equipment_accounting
             db = new DataBase("MyConnectionStringSql");
 
             dataGridView1.AllowUserToAddRows = false;
+
+            this.isAdmin = isAdmin;
         }
 
         private void frmAccounting_2_Load(object sender, EventArgs e)
@@ -178,7 +182,7 @@ namespace equipment_accounting
                 e.Cancel = true;
                 MessageBox.Show("Редактирование даты запрещено.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else if(!isAdmin)
             {
                 object cellValue = dataGridView1.Rows[e.RowIndex].Cells["dates"].Value;
 
@@ -217,7 +221,8 @@ namespace equipment_accounting
                                          "Москалев Р.В",
                                          "Рябов С.Д",
                                          "Рясов И.Д",
-                                         "Цывинский А.Ю");
+                                         "Цывинский А.Ю",
+                                         "");
 
                 dataGridView1[e.ColumnIndex, e.RowIndex] = comboCell;
             }

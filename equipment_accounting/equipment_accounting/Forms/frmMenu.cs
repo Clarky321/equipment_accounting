@@ -15,18 +15,15 @@ namespace equipment_accounting
 
             this.isAdmin = isAdmin;
 
-
-
-            //LockForm();
         }
 
-        private void LockForm()
-        {
-            foreach (Control control in Controls)
-            {
-                control.Enabled = false;
-            }
-        }
+        //private void LockForm()
+        //{
+        //    foreach (Control control in Controls)
+        //    {
+        //        control.Enabled = false;
+        //    }
+        //}
 
         private void UnlockForm()
         {
@@ -69,13 +66,13 @@ namespace equipment_accounting
 
         private void btn_tech1_Click(object sender, EventArgs e)
         {
-            frmAccounting_1 accounting_1 = new frmAccounting_1();
+            frmAccounting_1 accounting_1 = new frmAccounting_1(isAdmin);
             accounting_1.ShowDialog();
         }
 
         private void btn_tech2_Click(object sender, EventArgs e)
         {
-            frmAccounting_2 accounting_2 = new frmAccounting_2();
+            frmAccounting_2 accounting_2 = new frmAccounting_2(isAdmin);
             accounting_2.ShowDialog();
         }
 
