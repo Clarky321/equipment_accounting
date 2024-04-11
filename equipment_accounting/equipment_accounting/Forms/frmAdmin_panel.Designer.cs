@@ -36,7 +36,6 @@
             this.btnQuery = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnBaseInfo = new System.Windows.Forms.Button();
             this.btnImportNight = new System.Windows.Forms.Button();
             this.comboBox_year1 = new System.Windows.Forms.ComboBox();
@@ -47,6 +46,7 @@
             this.btnImportDay = new System.Windows.Forms.Button();
             this.comboBox_month2 = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -61,14 +61,14 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1745, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1745, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 29);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 32);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // textBoxConsole
@@ -113,30 +113,19 @@
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(821, 302);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRefresh.Location = new System.Drawing.Point(706, 407);
+            this.btnRefresh.Location = new System.Drawing.Point(706, 49);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(136, 44);
             this.btnRefresh.TabIndex = 6;
             this.btnRefresh.Text = "Обновить";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(408, 407);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(136, 44);
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Сохранить";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBaseInfo
             // 
@@ -232,7 +221,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(564, 407);
+            this.btnAdd.Location = new System.Drawing.Point(518, 407);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(136, 44);
             this.btnAdd.TabIndex = 14;
@@ -240,17 +229,29 @@
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDelete.Location = new System.Drawing.Point(660, 407);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(182, 44);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Удалить запись";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // frmAdmin_panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1745, 949);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBaseInfo);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnQuery);
@@ -281,7 +282,6 @@
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBaseInfo;
         private System.Windows.Forms.Button btnImportNight;
         private System.Windows.Forms.ComboBox comboBox_year1;
@@ -292,5 +292,6 @@
         private System.Windows.Forms.Button btnImportDay;
         private System.Windows.Forms.ComboBox comboBox_month2;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

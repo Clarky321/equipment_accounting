@@ -3,56 +3,28 @@
   "WorkspaceRootPath": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmadmin_panel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmadmin_panel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmlog_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmlog_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmlog_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmlog_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmsign_up.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmsign_up.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmadmin_panel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmadmin_panel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmadmin_panel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmadmin_panel.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmaccounting_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmaccounting_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmaccounting_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\frmaccounting_1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|c:\\loran-project\\accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmlog_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmlog_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -69,167 +41,82 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmMenu.Designer.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmMenu.Designer.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmMenu.Designer.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmMenu.Designer.cs",
-              "RelativeToolTip": "equipment_accounting\\frmMenu.Designer.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAEwGoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T12:26:29.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmLog_in.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmLog_in.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "equipment_accounting\\frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T06:07:07.304Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmSign_up.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmSign_up.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmSign_up.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmSign_up.cs",
-              "RelativeToolTip": "equipment_accounting\\frmSign_up.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAADkAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T12:24:47.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DataBase.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\DataBase.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\DataBase.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\DataBase.cs",
-              "RelativeToolTip": "equipment_accounting\\DataBase.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAUwGAAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T06:46:19.107Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmSign_up.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmSign_up.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "equipment_accounting\\frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T12:24:46.529Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmAdmin_panel.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAdmin_panel.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmAdmin_panel.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAdmin_panel.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "equipment_accounting\\frmAdmin_panel.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T06:41:17.081Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmMenu.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmMenu.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "equipment_accounting\\frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmMenu.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmMenu.cs",
+              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T06:07:05.332Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "frmMenu.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmMenu.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmMenu.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmMenu.cs",
-              "RelativeToolTip": "equipment_accounting\\frmMenu.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAEwGcAAAAJAAAA",
+              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmMenu.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmMenu.cs",
+              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmMenu.cs",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-10T06:25:23.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "frmAdmin_panel.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAdmin_panel.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmAdmin_panel.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAdmin_panel.cs",
-              "RelativeToolTip": "equipment_accounting\\frmAdmin_panel.cs",
-              "ViewState": "AQIAAMIBAAAAAAAAAAAEwNgBAAAhAAAA",
+              "DocumentIndex": 2,
+              "Title": "frmSign_up.cs",
+              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmSign_up.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmSign_up.cs",
+              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmSign_up.cs",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmSign_up.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAAGIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-09T06:41:19.111Z",
+              "WhenOpened": "2024-04-11T06:42:25.324Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "frmAdmin_panel.Designer.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAdmin_panel.Designer.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmAdmin_panel.Designer.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAdmin_panel.Designer.cs",
-              "RelativeToolTip": "equipment_accounting\\frmAdmin_panel.Designer.cs",
-              "ViewState": "AQIAANsAAAAAAAAAAAAEwO8AAAA4AAAA",
+              "DocumentIndex": 3,
+              "Title": "frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmSign_up.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmSign_up.cs",
+              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T12:18:54.758Z",
+              "WhenOpened": "2024-04-11T06:42:23.349Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmLog_in.cs",
+              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmLog_in.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmLog_in.cs",
+              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmLog_in.cs",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmLog_in.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAgwF4AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-11T06:38:02.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmSign_up.Designer.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmSign_up.Designer.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmSign_up.Designer.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmSign_up.Designer.cs",
-              "RelativeToolTip": "equipment_accounting\\frmSign_up.Designer.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAEwFkAAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmLog_in.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmLog_in.cs",
+              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T12:21:05.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "frmAccounting_1.cs",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAccounting_1.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmAccounting_1.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAccounting_1.cs",
-              "RelativeToolTip": "equipment_accounting\\frmAccounting_1.cs",
-              "ViewState": "AQIAAHAAAAAAAAAAAAAEwJoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T06:45:35.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "frmAccounting_1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAccounting_1.cs",
-              "RelativeDocumentMoniker": "equipment_accounting\\frmAccounting_1.cs",
-              "ToolTip": "C:\\loran-project\\Accounting\\v2\\equipment_accounting\\equipment_accounting\\equipment_accounting\\frmAccounting_1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "equipment_accounting\\frmAccounting_1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T06:45:29.81Z",
+              "WhenOpened": "2024-04-11T06:38:00.755Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             }
           ]

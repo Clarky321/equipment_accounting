@@ -19,8 +19,6 @@ namespace equipment_accounting
             db = new DataBase("MyConnectionStringSql");
 
             DisplayData();
-
-            //dataGridView1.AllowUserToAddRows = false;
         }
 
         private void frmAdmin_panel_Load(object sender, EventArgs e)
@@ -194,67 +192,6 @@ namespace equipment_accounting
         private void btnQuery_Click(object sender, EventArgs e)
         {
             sqlQuery();
-        }
-
-        private void SaveDataInfo()
-        {
-            try
-            {
-                db.OpenConnection();
-
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    // Проверяем, является ли строка новой (т.е. ее ID равен 0)
-                    if (row.IsNewRow)
-                        continue;
-
-                    // Собираем данные из ячеек строки
-                    int id_user = Convert.ToInt32(row.Cells["id_user"].Value);
-                    string login = row.Cells["login_user"].Value != DBNull.Value ? row.Cells["login_user"].Value.ToString() : string.Empty;
-                    string password = row.Cells["password_user"].Value != DBNull.Value ? row.Cells["password_user"].Value.ToString() : string.Empty;
-                    int isAdmin;
-
-                    // Проверяем значение ячейки на DBNull перед конвертацией в int
-                    if (row.Cells["isAdmin"].Value != DBNull.Value)
-                    {
-                        isAdmin = Convert.ToInt32(row.Cells["isAdmin"].Value);
-                    }
-                    else
-                    {
-                        isAdmin = 0; // Устанавливаем значение по умолчанию (0) если значение ячейки DBNull
-                    }
-
-                    // Создаем SQL-запрос в зависимости от того, новая это строка или уже существующая
-                    string query = "";
-                    if (id_user == 0)
-                    {
-                        query = $"INSERT INTO register (login_user, password_user, isAdmin) VALUES ('{login}', '{password}', {isAdmin})";
-                    }
-                    else
-                    {
-                        query = $"UPDATE register SET login_user = '{login}', password_user = '{password}', isAdmin = {isAdmin} WHERE id_user = {id_user}";
-                    }
-
-                    // Выполняем SQL-запрос
-                    db.ExecuteNonQuery(query);
-                }
-
-                MessageBox.Show("Данные успешно сохранены", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                db.CloseConnection();
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            //SaveChanges();
-            SaveDataInfo();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -471,6 +408,54 @@ namespace equipment_accounting
         {
             frmSign_up sign_Up = new frmSign_up();
             sign_Up.ShowDialog();
+        }
+
+        private void DeleteRecord(int idToDelete)
+        {
+            try
+            {
+                db.OpenConnection();
+
+                string query = $"DELETE FROM register WHERE id_user = {idToDelete}";
+                db.ExecuteNonQuery(query);
+
+                MessageBox.Show("Запись успешно удалена", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DisplayData(); // Обновление отображения данных после удаления записи
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при удалении записи: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                db.CloseConnection();
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("Вы уверены, что хотите удалить эту запись", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    int idToDelete = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["id_user"].Value);
+                    DeleteRecord(idToDelete);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите строку для удаления", "Warning", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
     }
 }

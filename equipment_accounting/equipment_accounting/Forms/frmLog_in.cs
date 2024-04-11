@@ -87,7 +87,7 @@ namespace equipment_accounting
                 db.CloseConnection();
             }
 
-            this.Close();
+            Close();
         }
 
         private void btnEnter_Click(object sender, EventArgs e)

@@ -15,6 +15,8 @@ namespace equipment_accounting
 
             this.isAdmin = isAdmin;
 
+
+
             //LockForm();
         }
 
