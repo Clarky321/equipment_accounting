@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace equipment_accounting
 {

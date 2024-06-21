@@ -1,50 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace equipment_accounting
 {
-    // Класс для работы с учетными записями пользователей
+    // Класс для работы с учетными записями пользователей.
     public class UserLogins : IDisposable
     {
         private readonly string connectionString;
 
-        // Конструктор класса UserLogins
+        // Конструктор класса UserLogins.
         public UserLogins(string connectionString)
         {
             this.connectionString = connectionString;
         }
-        // Список уникальных логинов пользователей
+
+        // Список уникальных логинов пользователей.
         public List<string> GetUniqueUserLogins()
         {
-            // Создание нового списка для хранения уникальных логинов пользователей
             List<string> logins = new List<string>();
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             using (MySqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT DISTINCT login_user FROM register";
+                command.CommandText = "SELECT DISTINCT login_user FROM register WHERE login_user IS NOT NULL";
 
                 connection.Open();
-                // Выполнеине SQL - запроса и получение результатов в виде DataReader
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    // Перебор всех записей в результирующем наборе
                     while (reader.Read())
                     {
-                        // Получение логина пользователя из текущей записи и добавление его в список
-                        logins.Add(reader.GetString(0));
+                        if (!reader.IsDBNull(0)) // Проверка на NULL значение.
+                        {
+                            string login = reader.GetString(0);
+                            if (!string.IsNullOrEmpty(login))
+                            {
+                                logins.Add(login);
+                            }
+                        }
                     }
                 }
             }
-            // Возвращение списка уникальных логинов пользователей
             return logins;
         }
 
-        // Освобождение ресурсов, занятые объектом UserLogins
+        // Освобождение ресурсов, занятых объектом UserLogins.
         public void Dispose()
         {
-            // Если в будущем потребуется освобождение ресурсов, то метод требуется доработать
+            // Если в будущем потребуется освобождение ресурсов, то метод требуется доработать.
         }
     }
 }

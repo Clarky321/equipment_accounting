@@ -2,7 +2,7 @@
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace equipment_accounting
