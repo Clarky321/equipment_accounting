@@ -168,3 +168,4 @@ D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Configuration.ConfigurationManager.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.csproj.SuggestedBindingRedirects.cache
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.exe.config
+D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Forms.technique.resources

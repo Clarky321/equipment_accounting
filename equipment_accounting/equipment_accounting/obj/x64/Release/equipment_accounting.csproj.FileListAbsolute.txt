@@ -58,3 +58,4 @@ D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Release\equipmen.11D0E2F9.Up2Date
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Release\equipment_accounting.exe
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Release\equipment_accounting.pdb
+D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Release\equipment_accounting.Forms.technique.resources

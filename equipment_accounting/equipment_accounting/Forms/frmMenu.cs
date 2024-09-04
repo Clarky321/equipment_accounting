@@ -1,4 +1,5 @@
-﻿using System;
+﻿using equipment_accounting.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace equipment_accounting
@@ -100,6 +101,12 @@ namespace equipment_accounting
                 control.Width = (int)(control.Width * widthRatio);
                 control.Height = (int)(control.Height * heightRatio);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            technique technique_form = new technique();
+            technique_form.ShowDialog();
         }
     }
 }

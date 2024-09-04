@@ -140,16 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DataBase.cs" />
-    <Compile Include="Forms\frmAccounting_2.cs">
+    <Compile Include="Forms\form_technique\frmAccounting_2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAccounting_2.Designer.cs">
+    <Compile Include="Forms\form_technique\frmAccounting_2.Designer.cs">
       <DependentUpon>frmAccounting_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmAccounting_1.cs">
+    <Compile Include="Forms\form_technique\frmAccounting_1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmAccounting_1.Designer.cs">
+    <Compile Include="Forms\form_technique\frmAccounting_1.Designer.cs">
       <DependentUpon>frmAccounting_1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmAdmin_panel.cs">
@@ -158,10 +158,10 @@
     <Compile Include="Forms\frmAdmin_panel.Designer.cs">
       <DependentUpon>frmAdmin_panel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLog_in.cs">
+    <Compile Include="Forms\form_auth\frmLog_in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLog_in.Designer.cs">
+    <Compile Include="Forms\form_auth\frmLog_in.Designer.cs">
       <DependentUpon>frmLog_in.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMenu.cs">
@@ -170,32 +170,41 @@
     <Compile Include="Forms\frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSign_up.cs">
+    <Compile Include="Forms\form_auth\frmSign_up.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSign_up.Designer.cs">
+    <Compile Include="Forms\form_auth\frmSign_up.Designer.cs">
       <DependentUpon>frmSign_up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\form_technique\technique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\form_technique\technique.Designer.cs">
+      <DependentUpon>technique.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\UserLogins.cs" />
-    <EmbeddedResource Include="Forms\frmAccounting_2.resx">
+    <EmbeddedResource Include="Forms\form_technique\frmAccounting_2.resx">
       <DependentUpon>frmAccounting_2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmAccounting_1.resx">
+    <EmbeddedResource Include="Forms\form_technique\frmAccounting_1.resx">
       <DependentUpon>frmAccounting_1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAdmin_panel.resx">
       <DependentUpon>frmAdmin_panel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLog_in.resx">
+    <EmbeddedResource Include="Forms\form_auth\frmLog_in.resx">
       <DependentUpon>frmLog_in.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSign_up.resx">
+    <EmbeddedResource Include="Forms\form_auth\frmSign_up.resx">
       <DependentUpon>frmSign_up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\form_technique\technique.resx">
+      <DependentUpon>technique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -205,6 +214,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -252,6 +262,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="ico\logo-ibda.ico" />
+    <None Include="img\Close.png" />
+    <None Include="img\subtract.png" />
+    <None Include="img\customer_support.png" />
+    <None Include="img\customer_support2.png" />
     <Content Include="logo-ibda.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

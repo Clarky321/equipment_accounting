@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin_panel));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxConsole = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -47,33 +45,14 @@
             this.comboBox_month2 = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1745, 36);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // файлToolStripMenuItem
-            // 
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(69, 32);
-            this.файлToolStripMenuItem.Text = "Файл";
-            // 
             // textBoxConsole
             // 
-            this.textBoxConsole.Location = new System.Drawing.Point(903, 99);
+            this.textBoxConsole.Location = new System.Drawing.Point(903, 62);
             this.textBoxConsole.Multiline = true;
             this.textBoxConsole.Name = "textBoxConsole";
             this.textBoxConsole.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -84,7 +63,7 @@
             // 
             this.btnConnect.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnConnect.Location = new System.Drawing.Point(1342, 49);
+            this.btnConnect.Location = new System.Drawing.Point(1342, 12);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(382, 44);
             this.btnConnect.TabIndex = 3;
@@ -96,7 +75,7 @@
             // 
             this.btnQuery.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnQuery.Location = new System.Drawing.Point(1522, 407);
+            this.btnQuery.Location = new System.Drawing.Point(1522, 370);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(202, 44);
             this.btnQuery.TabIndex = 4;
@@ -107,7 +86,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 99);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 62);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
@@ -119,7 +98,7 @@
             // 
             this.btnRefresh.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRefresh.Location = new System.Drawing.Point(706, 49);
+            this.btnRefresh.Location = new System.Drawing.Point(706, 12);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(136, 44);
             this.btnRefresh.TabIndex = 6;
@@ -131,7 +110,7 @@
             // 
             this.btnBaseInfo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnBaseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBaseInfo.Location = new System.Drawing.Point(903, 49);
+            this.btnBaseInfo.Location = new System.Drawing.Point(903, 12);
             this.btnBaseInfo.Name = "btnBaseInfo";
             this.btnBaseInfo.Size = new System.Drawing.Size(433, 44);
             this.btnBaseInfo.TabIndex = 8;
@@ -221,7 +200,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(518, 407);
+            this.btnAdd.Location = new System.Drawing.Point(518, 370);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(136, 44);
             this.btnAdd.TabIndex = 14;
@@ -233,7 +212,7 @@
             // 
             this.btnDelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnDelete.Location = new System.Drawing.Point(660, 407);
+            this.btnDelete.Location = new System.Drawing.Point(660, 370);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(182, 44);
             this.btnDelete.TabIndex = 15;
@@ -257,14 +236,10 @@
             this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.textBoxConsole);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAdmin_panel";
             this.Text = "Админ-панель";
             this.Load += new System.EventHandler(this.frmAdmin_panel_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -274,9 +249,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.TextBox textBoxConsole;
         private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.Button btnQuery;
