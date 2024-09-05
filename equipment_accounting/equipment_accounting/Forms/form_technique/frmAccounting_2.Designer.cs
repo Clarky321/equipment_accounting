@@ -41,7 +41,7 @@
             // button_Refresh
             // 
             this.button_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Refresh.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button_Refresh.BackColor = System.Drawing.SystemColors.Control;
             this.button_Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Refresh.Location = new System.Drawing.Point(1337, 801);
             this.button_Refresh.Name = "button_Refresh";

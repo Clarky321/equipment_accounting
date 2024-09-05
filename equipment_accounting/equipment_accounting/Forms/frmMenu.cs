@@ -1,6 +1,8 @@
 ﻿using equipment_accounting.Forms;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace equipment_accounting
 {
@@ -8,6 +10,10 @@ namespace equipment_accounting
     {
         private bool isAdmin = false;
         private bool isLoggedIn = false;
+
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
 
         public frmMenu(bool isAdmin)
         {
@@ -83,11 +89,6 @@ namespace equipment_accounting
             admin_Panel.ShowDialog();
         }
 
-        private void выйтиИзПриложенияToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void frmMenu_Resize(object sender, EventArgs e)
         {
             float widthRatio = (float)Width / MinimumSize.Width;
@@ -107,6 +108,34 @@ namespace equipment_accounting
         {
             technique technique_form = new technique();
             technique_form.ShowDialog();
+        }
+
+        private void btn_close_Click(object sender, EventArgs e) { Application.Exit(); }
+
+        private void btn_subtrack_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                dragCursorPoint = Cursor.Position;
+                dragFormPoint = Location;
+            }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging && e.Button == MouseButtons.Left)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
         }
     }
 }

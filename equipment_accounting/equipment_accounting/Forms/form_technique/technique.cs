@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using MySqlConnector;
 
@@ -8,6 +9,10 @@ namespace equipment_accounting.Forms
     public partial class technique : Form
     {
         private DataBase db;
+
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
 
         public technique()
         {
@@ -56,6 +61,8 @@ namespace equipment_accounting.Forms
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Данные успешно обновлены.", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        ClearField();
                     }
                     else
                     {
@@ -71,6 +78,46 @@ namespace equipment_accounting.Forms
             {
                 db.CloseConnection();
             }
+        }
+
+        private void ClearField()
+        {
+            textBox_dates.Clear();
+            textBox_loptops_1.Clear();
+            textBox_loptops_2.Clear();
+            textBox_projectors.Clear();
+            textBox_webcam_logitech.Clear();
+            textBox_webcam_nlo.Clear();
+            textBox_webcam_tower.Clear();
+            textBox_message.Clear();
+        }
+
+        private void btn_close_Click(object sender, EventArgs e) { Hide(); }
+
+        private void btn_subtrack_Click(object sender, EventArgs e) { WindowState = FormWindowState.Minimized; }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                dragCursorPoint = Cursor.Position;
+                dragFormPoint = Location;
+            }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging && e.Button == MouseButtons.Left)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
         }
     }
 }
