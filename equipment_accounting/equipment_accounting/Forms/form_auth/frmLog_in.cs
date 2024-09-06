@@ -2,12 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
+using System.Diagnostics;
+
 
 namespace equipment_accounting
 {
     public partial class frmLog_in : Form
     {
+
+
         private DataBase db;
         bool isAdmin = false;
         public event EventHandler<bool> SuccessfulLogin;
@@ -25,6 +33,35 @@ namespace equipment_accounting
 
             this.isAdmin = isAdmin;
             btnText_password.UseSystemPasswordChar = true;
+
+            WebClient webClient = new WebClient();
+            var client = new WebClient();
+
+            if (!webClient.DownloadString("").Contains("1.0.0"))
+            {
+                if (MessageBox.Show("Доступно новое обновление! Установить новое обновление сейчас?", "equipment_accounting", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if(File.Exists(@".\MyAppSetup.msi")) { File.Delete(@".\MyAppSetup.msi"); }
+                        client.DownloadFile("link", @"MyAppSetup.zip");
+                        string zipPath = @".\MyAppSetup.zip";
+                        string extractPath = @".\";
+                        ZipFile.ExtractToDirectory(zipPath, extractPath);
+
+                        Process process = new Process();
+                        process.StartInfo.Arguments = "msiexec";
+                        process.StartInfo.Arguments = String.Format("/i MyAppSetup.msi");
+
+                        Close();
+                        process.Start();
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
 
         private void frmLog_in_Load(object sender, EventArgs e)
@@ -128,6 +165,12 @@ namespace equipment_accounting
                 dragCursorPoint = Cursor.Position;
                 dragFormPoint = Location;
             }
+
+            //    Task.Run(
+            //         () =>
+            //    {
+            //        FuckMyLive();
+            //    });
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)

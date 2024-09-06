@@ -7,12 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "equipment_accounting", "equ
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		All|x64 = All|x64
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.All|Any CPU.Build.0 = Release|Any CPU
+		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.All|x64.ActiveCfg = Release|x64
+		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.All|x64.Build.0 = Release|x64
 		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.Debug|x64.ActiveCfg = Debug|x64
