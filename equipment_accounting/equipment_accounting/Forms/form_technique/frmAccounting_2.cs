@@ -24,6 +24,11 @@ namespace equipment_accounting
         {
             LoadYears();
             LoadMonth();
+
+            comboBox_year.Text = DateTime.Now.Year.ToString();
+            comboBox_month.SelectedIndex = DateTime.Now.Month - 1;
+
+            UpdateDataGridView();
         }
 
         private void DataGirdSize()
