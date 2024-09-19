@@ -196,7 +196,12 @@
             this.comboBox_names.FormattingEnabled = true;
             this.comboBox_names.Items.AddRange(new object[] {
             "Рябов С.Д",
-            "Вареничев Н.В"});
+            "Вареничев Н.В",
+            "Копченов М.В",
+            "Рясов И.Д",
+            "Москалев Р.В",
+            "Кулагин В.В",
+            "Цывинский А.Ю"});
             this.comboBox_names.Location = new System.Drawing.Point(311, 420);
             this.comboBox_names.Name = "comboBox_names";
             this.comboBox_names.Size = new System.Drawing.Size(312, 37);

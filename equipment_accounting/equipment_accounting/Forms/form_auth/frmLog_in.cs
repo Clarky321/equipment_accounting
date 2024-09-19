@@ -32,34 +32,34 @@ namespace equipment_accounting
             this.isAdmin = isAdmin;
             btnText_password.UseSystemPasswordChar = true;
 
-            WebClient webClient = new WebClient();
-            var client = new WebClient();
+            //WebClient webClient = new WebClient();
+            //var client = new WebClient();
 
-            if (!webClient.DownloadString("https://www.dropbox.com/scl/fi/2ikl7sv9xwa7wit68k45k/Update.txt?rlkey=bvdbrbcyknx88vry90sz0u059&st=k5npj1ah&dl=1").Contains("1.0.0"))
-            {
-                if (MessageBox.Show("Доступно новое обновление! Установить новое обновление сейчас?", "equipment_accounting", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    try
-                    {
-                        if(File.Exists(@".\MyAppSetup.msi")) { File.Delete(@".\MyAppSetup.msi"); }
-                        client.DownloadFile("https://www.dropbox.com/scl/fi/5u1hftmb3zbmsj2mgkvsd/MyAppSetup.zip?rlkey=ugwfg25eddoulcpyx8w52xqzf&st=3ajsd1kz&dl=1", @"MyAppSetup.zip");
-                        string zipPath = @".\MyAppSetup.zip";
-                        string extractPath = @".\";
-                        ZipFile.ExtractToDirectory(zipPath, extractPath);
+            //if (!webClient.DownloadString("https://www.dropbox.com/scl/fi/2ikl7sv9xwa7wit68k45k/Update.txt?rlkey=bvdbrbcyknx88vry90sz0u059&st=k5npj1ah&dl=1").Contains("1.0.0"))
+            //{
+            //    if (MessageBox.Show("Доступно новое обновление! Установить новое обновление сейчас?", "equipment_accounting", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //    {
+            //        try
+            //        {
+            //            if(File.Exists(@".\MyAppSetup.msi")) { File.Delete(@".\MyAppSetup.msi"); }
+            //            client.DownloadFile("https://www.dropbox.com/scl/fi/5u1hftmb3zbmsj2mgkvsd/MyAppSetup.zip?rlkey=ugwfg25eddoulcpyx8w52xqzf&st=3ajsd1kz&dl=1", @"MyAppSetup.zip");
+            //            string zipPath = @".\MyAppSetup.zip";
+            //            string extractPath = @".\";
+            //            ZipFile.ExtractToDirectory(zipPath, extractPath);
 
-                        Process process = new Process();
-                        process.StartInfo.Arguments = "msiexec";
-                        process.StartInfo.Arguments = String.Format("/i MyAppSetup.msi");
+            //            Process process = new Process();
+            //            process.StartInfo.Arguments = "msiexec";
+            //            process.StartInfo.Arguments = String.Format("/i MyAppSetup.msi");
 
-                        Close();
-                        process.Start();
-                    }
-                    catch
-                    {
+            //            Close();
+            //            process.Start();
+            //        }
+            //        catch
+            //        {
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
         }
 
         private void frmLog_in_Load(object sender, EventArgs e)
