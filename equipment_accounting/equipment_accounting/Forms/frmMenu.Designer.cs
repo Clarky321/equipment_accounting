@@ -100,11 +100,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(426, 740);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(580, 735);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 20);
+            this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 7;
-            this.label3.Text = "created by Ryabov Sergay v. 1.1";
+            this.label3.Text = "Ver. 1.3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // button1

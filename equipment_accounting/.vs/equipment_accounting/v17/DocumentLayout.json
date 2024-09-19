@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|d:\\!!loran-project\\c#\\winforms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\frmmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|d:\\!!loran-project\\c#\\winforms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\forms\\form_auth\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9CD22221-45B5-40B2-835D-402B7CF08BDF}|equipment_accounting\\equipment_accounting.csproj|solutionrelative:equipment_accounting\\forms\\form_auth\\frmsign_up.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -59,6 +63,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmMenu.cs",
+              "RelativeDocumentMoniker": "equipment_accounting\\Forms\\frmMenu.cs",
+              "ToolTip": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "equipment_accounting\\Forms\\frmMenu.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T11:22:07.531Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "frmSign_up.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_auth\\frmSign_up.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_auth\\frmSign_up.cs",
@@ -70,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmAccounting_2.cs",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_technique\\frmAccounting_2.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_technique\\frmAccounting_2.cs",
@@ -82,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "frmAccounting_1.cs",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_technique\\frmAccounting_1.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_technique\\frmAccounting_1.cs",
@@ -94,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "frmAccounting_2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_technique\\frmAccounting_2.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_technique\\frmAccounting_2.cs",
@@ -105,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "frmLog_in.cs",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_auth\\frmLog_in.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_auth\\frmLog_in.cs",
@@ -117,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "frmAccounting_1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_technique\\frmAccounting_1.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_technique\\frmAccounting_1.cs",
@@ -128,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "frmLog_in.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_auth\\frmLog_in.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_auth\\frmLog_in.cs",
@@ -139,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "technique.cs",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_technique\\technique.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_technique\\technique.cs",
@@ -151,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "technique.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "D:\\!!loran-project\\C#\\WinForms\\equipment_accounting\\equipment_accounting\\equipment_accounting\\Forms\\form_technique\\technique.cs",
               "RelativeDocumentMoniker": "equipment_accounting\\Forms\\form_technique\\technique.cs",
