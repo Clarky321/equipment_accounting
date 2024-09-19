@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "equipment_accounting", "equipment_accounting\equipment_accounting.csproj", "{9CD22221-45B5-40B2-835D-402B7CF08BDF}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MyAppSetup", "MyAppSetup\MyAppSetup.vdproj", "{DFAEE4E9-5799-4BAC-8310-12AB880972DE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -29,12 +27,6 @@ Global
 		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.Release|x64.ActiveCfg = Release|x64
 		{9CD22221-45B5-40B2-835D-402B7CF08BDF}.Release|x64.Build.0 = Release|x64
-		{DFAEE4E9-5799-4BAC-8310-12AB880972DE}.All|Any CPU.ActiveCfg = Debug
-		{DFAEE4E9-5799-4BAC-8310-12AB880972DE}.All|x64.ActiveCfg = Debug
-		{DFAEE4E9-5799-4BAC-8310-12AB880972DE}.Debug|Any CPU.ActiveCfg = Debug
-		{DFAEE4E9-5799-4BAC-8310-12AB880972DE}.Debug|x64.ActiveCfg = Debug
-		{DFAEE4E9-5799-4BAC-8310-12AB880972DE}.Release|Any CPU.ActiveCfg = Release
-		{DFAEE4E9-5799-4BAC-8310-12AB880972DE}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
