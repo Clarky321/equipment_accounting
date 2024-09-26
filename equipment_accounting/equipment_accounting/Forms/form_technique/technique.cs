@@ -28,6 +28,11 @@ namespace equipment_accounting.Forms
         private void btn_Enter_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox_loptops_1.Text) ||
+                string.IsNullOrWhiteSpace(textBox_loptops_2.Text) ||
+                string.IsNullOrWhiteSpace(textBox_projectors.Text) ||
+                string.IsNullOrWhiteSpace(textBox_webcam_logitech.Text) ||
+                string.IsNullOrWhiteSpace(textBox_webcam_nlo.Text) ||
+                string.IsNullOrWhiteSpace(textBox_webcam_tower.Text) ||
                 string.IsNullOrWhiteSpace(textBox_dates.Text) ||
                 comboBox_names.SelectedIndex == -1)
             {
