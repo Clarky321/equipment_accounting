@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="equipment_accounting.exe" size="1806776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="equipment_accounting.exe" size="1807288">
       <assemblyIdentity name="equipment_accounting" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>27ZGf/mILnsU8V8ummBU2ABxWJjraYOj97910mHy63A=</dsig:DigestValue>
+        <dsig:DigestValue>uasTC1ptQoD7iKRnipKJZ9MC34ardnKytw3JrU5RD9w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
