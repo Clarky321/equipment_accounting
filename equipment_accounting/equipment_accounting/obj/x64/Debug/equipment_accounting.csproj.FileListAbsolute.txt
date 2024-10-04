@@ -111,7 +111,6 @@ C:\loran-project\Accounting\v2\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.exe.config
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.exe
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.pdb
-D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\BouncyCastle.Cryptography.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Google.Protobuf.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\K4os.Compression.LZ4.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\K4os.Compression.LZ4.Streams.dll
@@ -119,7 +118,6 @@ D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.Extensions.Logging.Abstractions.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.IO.RecyclableMemoryStream.dll
-D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\MySql.Data.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\MySqlConnector.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Buffers.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.ComponentModel.Annotations.dll
@@ -131,7 +129,6 @@ D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\ZstdSharp.dll
-D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\BouncyCastle.Cryptography.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Google.Protobuf.pdb
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Google.Protobuf.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\K4os.Compression.LZ4.xml
@@ -140,7 +137,6 @@ D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.IO.RecyclableMemoryStream.xml
-D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\MySql.Data.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\MySqlConnector.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Buffers.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Diagnostics.DiagnosticSource.xml
@@ -166,10 +162,12 @@ D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipme
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\System.Configuration.ConfigurationManager.xml
-D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.csproj.SuggestedBindingRedirects.cache
-D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.exe.config
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Forms.technique.resources
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.exe.manifest
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\bin\x64\Debug\equipment_accounting.application
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.exe.manifest
 D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.application
+D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Forms.holidayCalendar.resources
+D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Forms.UserControlBlank.resources
+D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Forms.UserControlDays.resources
+D:\!!loran-project\C#\WinForms\equipment_accounting\equipment_accounting\equipment_accounting\obj\x64\Debug\equipment_accounting.Forms.EventForm.resources

@@ -137,5 +137,11 @@ namespace equipment_accounting
         {
             dragging = false;
         }
+
+        private void btnCalendar_Click(object sender, EventArgs e)
+        {
+            holidayCalendar holidayCalendar = new holidayCalendar();
+            holidayCalendar.ShowDialog();
+        }
     }
 }
