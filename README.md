@@ -1,1 +1,3 @@
-# equipment_accounting
+## equipment_accounting
+
+# Система учета техники
